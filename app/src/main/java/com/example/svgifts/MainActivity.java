@@ -2,6 +2,10 @@ package com.example.svgifts;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,26 +18,79 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<StardewItem> allItems = new ArrayList<>();
-    private List<NPCTaste> allNPCs = new ArrayList<>();
+    private final List<StardewItem> allItems = new ArrayList<>();
+    private final List<NPCTaste> allNPCs = new ArrayList<>();
+    private final List<String> universalLoves = new ArrayList<>();
+    private final List<String> universalLikes = new ArrayList<>();
+    AutoCompleteTextView autoCompleteItem;
+    TextView txtLoveResults, txtLikeResults;
+    Button btnCheck;
+    StardewItem selectedItem = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // เรียกใช้งานการโหลดข้อมูล
+        // 1. เชื่อมตัวแปร UI
+        autoCompleteItem = findViewById(R.id.autoCompleteItem);
+        txtLoveResults = findViewById(R.id.txtLoveResults);
+        txtLikeResults = findViewById(R.id.txtLikeResults);
+        btnCheck = findViewById(R.id.btnCheck);
+
+        // 2. โหลดข้อมูล (ฟังก์ชันเดิมที่เขียนไว้)
         loadGameData();
         testSearch("66", "Amethyst");   // ลองเช็ค Amethyst
         testSearch("190", "Cauliflower");   // ลองเช็ค Cauliflower
         testSearch("330", "Clay");      // ลองเช็ค Clay (ของที่คนส่วนใหญ่เกลียด)
-    }
 
+        // 3. ตั้งค่าการค้นหาไอเทม (AutoComplete)
+        ArrayAdapter<StardewItem> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_dropdown_item_1line, allItems);
+        autoCompleteItem.setAdapter(adapter);
+
+        // เก็บค่าเมื่อผู้ใช้เลือกไอเทมจากรายการ
+        autoCompleteItem.setOnItemClickListener((parent, view, position, id) -> {
+            selectedItem = (StardewItem) parent.getItemAtPosition(position);
+        });
+
+        // 4. เมื่อกดปุ่มตรวจสอบ
+        btnCheck.setOnClickListener(v -> {
+            if (selectedItem != null) {
+                updateUIResults(selectedItem.getId(), selectedItem.getName());
+            }
+        });
+    }
+    private void updateUIResults(String itemId, String itemName) {
+        List<String> lovers = new ArrayList<>();
+        List<String> likers = new ArrayList<>();
+
+        boolean isUniversalLove = universalLoves.contains(itemId);
+        boolean isUniversalLike = universalLikes.contains(itemId);
+
+        for (NPCTaste npc : allNPCs) {
+            if (npc.getLoveIDs().contains(itemId)) {
+                lovers.add(npc.getNpcName());
+            } else if (npc.getLikeIDs().contains(itemId)) {
+                likers.add(npc.getNpcName());
+            } else if (isUniversalLove) {
+                lovers.add(npc.getNpcName());
+            } else if (isUniversalLike) {
+                likers.add(npc.getNpcName());
+            }
+        }
+
+        txtLoveResults.setText(lovers.isEmpty() ? "ไม่มี" : String.join(", ", lovers));
+        txtLikeResults.setText(likers.isEmpty() ? "ไม่มี" : String.join(", ", likers));
+    }
     private void testSearch(String itemId, String itemName) {
         Log.d("StardewTest", "--- กำลังค้นหา: " + itemName + " (ID: " + itemId + ") ---");
 
         List<String> lovers = new ArrayList<>();
         List<String> likers = new ArrayList<>();
+
+        boolean isUniversalLove = universalLoves.contains(itemId);
+        boolean isUniversalLike = universalLikes.contains(itemId);
 
         for (NPCTaste npc : allNPCs) {
             // เช็คว่าอยู่ใน List ของที่ Love หรือไม่
@@ -42,6 +99,10 @@ public class MainActivity extends AppCompatActivity {
             }
             // เช็คว่าอยู่ใน List ของที่ Like หรือไม่
             else if (npc.getLikeIDs().contains(itemId)) {
+                likers.add(npc.getNpcName());
+            } else if (isUniversalLove) {
+                lovers.add(npc.getNpcName());
+            } else if (isUniversalLike) {
                 likers.add(npc.getNpcName());
             }
         }
@@ -75,6 +136,20 @@ public class MainActivity extends AppCompatActivity {
             if (npcJsonString != null) {
                 JSONObject npcRoot = new JSONObject(npcJsonString);
                 JSONObject content = npcRoot.getJSONObject("content");
+
+                // โหลด Universal Love/Like
+                if (content.has("Universal_Love")) {
+                    String[] ids = content.getString("Universal_Love").split(" ");
+                    for (String id : ids) {
+                        if (!id.trim().isEmpty()) universalLoves.add(id.trim());
+                    }
+                }
+                if (content.has("Universal_Like")) {
+                    String[] ids = content.getString("Universal_Like").split(" ");
+                    for (String id : ids) {
+                        if (!id.trim().isEmpty()) universalLikes.add(id.trim());
+                    }
+                }
 
                 Iterator<String> npcKeys = content.keys();
                 while (npcKeys.hasNext()) {
