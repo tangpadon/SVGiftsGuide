@@ -18,9 +18,11 @@ Item Database: Mapped using MateusAquino/stardewids, providing consistent Object
 
 [x] Core Logic: Functional Java-based data parsing for complex gift taste strings.
 
-[] Smart Search: Quickly find specific NPCs by name.
+[x] Item-to-NPC Mapping: Search an item name and get a list of NPCs who Love or Like it.
 
-[] Gift Preference Tables: Detailed breakdown of "Loves" and "Likes" items.
+[ ] Smart Search: Quickly find specific NPCs by name.
+
+[ ] Gift Preference Tables: Detailed breakdown of "Loves" and "Likes" items.
 
 [ ] UI/UX Refinement: Currently in the process of designing a modern, Material Design interface.
 
