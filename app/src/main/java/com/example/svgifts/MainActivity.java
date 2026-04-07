@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
     private final List<NPCTaste> allNPCs = new ArrayList<>();
     private final List<String> universalLoves = new ArrayList<>();
     private final List<String> universalLikes = new ArrayList<>();
-    AutoCompleteTextView autoCompleteItem;
+    AutoCompleteTextView autoCompleteSearch;
     TextView txtLoveResults, txtLikeResults;
     Button btnCheck;
-    StardewItem selectedItem = null;
+    Object selectedObject = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,33 +33,80 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // 1. เชื่อมตัวแปร UI
-        autoCompleteItem = findViewById(R.id.autoCompleteItem);
+        autoCompleteSearch = findViewById(R.id.autoCompleteSearch);
         txtLoveResults = findViewById(R.id.txtLoveResults);
         txtLikeResults = findViewById(R.id.txtLikeResults);
         btnCheck = findViewById(R.id.btnCheck);
 
         // 2. โหลดข้อมูล (ฟังก์ชันเดิมที่เขียนไว้)
         loadGameData();
-        testSearch("66", "Amethyst");   // ลองเช็ค Amethyst
-        testSearch("190", "Cauliflower");   // ลองเช็ค Cauliflower
-        testSearch("330", "Clay");      // ลองเช็ค Clay (ของที่คนส่วนใหญ่เกลียด)
 
-        // 3. ตั้งค่าการค้นหาไอเทม (AutoComplete)
-        ArrayAdapter<StardewItem> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_dropdown_item_1line, allItems);
-        autoCompleteItem.setAdapter(adapter);
+        // 3. รวมข้อมูลทั้ง Item และ NPC ลงใน List เดียวกันเพื่อทำ Search
+        List<Object> combinedList = new ArrayList<>();
+        combinedList.addAll(allItems);
+        combinedList.addAll(allNPCs);
 
-        // เก็บค่าเมื่อผู้ใช้เลือกไอเทมจากรายการ
-        autoCompleteItem.setOnItemClickListener((parent, view, position, id) -> {
-            selectedItem = (StardewItem) parent.getItemAtPosition(position);
+        ArrayAdapter<Object> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_dropdown_item_1line, combinedList);
+        autoCompleteSearch.setAdapter(adapter);
+
+        // เก็บค่าเมื่อผู้ใช้เลือก
+        autoCompleteSearch.setOnItemClickListener((parent, view, position, id) -> {
+            selectedObject = parent.getItemAtPosition(position);
+        });
+
+        // ล้างข้อความเมื่อกดที่ช่องค้นหา
+        autoCompleteSearch.setOnClickListener(v -> {
+            autoCompleteSearch.setText("");
+            selectedObject = null;
         });
 
         // 4. เมื่อกดปุ่มตรวจสอบ
         btnCheck.setOnClickListener(v -> {
-            if (selectedItem != null) {
-                updateUIResults(selectedItem.getId(), selectedItem.getName());
+            if (selectedObject instanceof StardewItem) {
+                StardewItem item = (StardewItem) selectedObject;
+                updateUIResults(item.getId(), item.getName());
+            } else if (selectedObject instanceof NPCTaste) {
+                updateNPCUIResults((NPCTaste) selectedObject);
             }
         });
+    }
+
+    private void updateNPCUIResults(NPCTaste npc) {
+        List<String> loveNames = new ArrayList<>();
+        List<String> likeNames = new ArrayList<>();
+
+        // รวม Universal เข้าไปก่อน
+        for (String id : universalLoves) {
+            String name = getItemNameById(id);
+            if (name != null) loveNames.add(name);
+        }
+        for (String id : universalLikes) {
+            String name = getItemNameById(id);
+            if (name != null) likeNames.add(name);
+        }
+
+        // เพิ่มของเฉพาะตัว NPC
+        for (String id : npc.getLoveIDs()) {
+            String name = getItemNameById(id);
+            if (name != null && !loveNames.contains(name)) loveNames.add(name);
+        }
+        for (String id : npc.getLikeIDs()) {
+            String name = getItemNameById(id);
+            if (name != null && !likeNames.contains(name)) likeNames.add(name);
+        }
+
+        txtLoveResults.setText(loveNames.isEmpty() ? "ไม่มี" : String.join(", ", loveNames));
+        txtLikeResults.setText(likeNames.isEmpty() ? "ไม่มี" : String.join(", ", likeNames));
+    }
+
+    private String getItemNameById(String id) {
+        for (StardewItem item : allItems) {
+            if (item.getId().equals(id)) {
+                return item.getName();
+            }
+        }
+        return null;
     }
     private void updateUIResults(String itemId, String itemName) {
         List<String> lovers = new ArrayList<>();

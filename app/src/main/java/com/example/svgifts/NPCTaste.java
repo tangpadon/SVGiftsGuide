@@ -40,4 +40,9 @@ public class NPCTaste {
     public String getNpcName() { return npcName; }
     public List<String> getLoveIDs() { return loveIDs; }
     public List<String> getLikeIDs() { return likeIDs; }
+
+    @Override
+    public String toString() {
+        return npcName;
+    }
 }
