@@ -20,11 +20,11 @@ Item Database: Mapped using MateusAquino/stardewids, providing consistent Object
 
 [x] Item-to-NPC Mapping: Search an item name and get a list of NPCs who Love or Like it.
 
-[ ] Smart Search: Quickly find specific NPCs by name.
-
-[ ] Gift Preference Tables: Detailed breakdown of "Loves" and "Likes" items.
+[x] Reverse Lookup: Instead of looking at an NPC to see what they want, look at your inventory items to see who to give them to.
 
 [ ] UI/UX Refinement: Currently in the process of designing a modern, Material Design interface.
+
+[ ] Support SVE mod...
 
 🛠 Tech Stack
 
