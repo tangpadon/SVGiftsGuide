@@ -168,7 +168,10 @@
 			"data-es-ES": "Rábano silvestre",
 			"data-de-DE": "Wilder Meerrettich",
 			"data-zh-CN": "野山葵"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "18",
@@ -187,7 +190,10 @@
 			"data-es-ES": "Narciso",
 			"data-de-DE": "Narzisse",
 			"data-zh-CN": "黄水仙"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "20",
@@ -206,7 +212,10 @@
 			"data-es-ES": "Puerro",
 			"data-de-DE": "Lauch",
 			"data-zh-CN": "韭葱"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "22",
@@ -225,7 +234,10 @@
 			"data-es-ES": "Diente de león",
 			"data-de-DE": "Löwenzahn",
 			"data-zh-CN": "蒲公英"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "24",
@@ -244,7 +256,10 @@
 			"data-es-ES": "Chirivía",
 			"data-de-DE": "Pastinake",
 			"data-zh-CN": "防风草"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "25",
@@ -1688,7 +1703,10 @@
 			"data-es-ES": "Pez globo",
 			"data-de-DE": "Kugelfisch",
 			"data-zh-CN": "河豚"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "129",
@@ -1707,7 +1725,11 @@
 			"data-es-ES": "Anchoa",
 			"data-de-DE": "Sardelle",
 			"data-zh-CN": "鳀鱼"
-		}
+		},
+		"seasons": [
+			"spring",
+			"fall"
+		]
 	},
 	{
 		"id": "130",
@@ -1726,7 +1748,11 @@
 			"data-es-ES": "Atún",
 			"data-de-DE": "Thunfisch",
 			"data-zh-CN": "金枪鱼"
-		}
+		},
+		"seasons": [
+			"summer",
+			"winter"
+		]
 	},
 	{
 		"id": "131",
@@ -1745,7 +1771,12 @@
 			"data-es-ES": "Sardina",
 			"data-de-DE": "Sardine",
 			"data-zh-CN": "沙丁鱼"
-		}
+		},
+		"seasons": [
+			"spring",
+			"fall",
+			"winter"
+		]
 	},
 	{
 		"id": "132",
@@ -1802,7 +1833,11 @@
 			"data-es-ES": "Lubina",
 			"data-de-DE": "Schwarzbarsch",
 			"data-zh-CN": "小嘴鲈鱼"
-		}
+		},
+		"seasons": [
+			"spring",
+			"fall"
+		]
 	},
 	{
 		"id": "138",
@@ -1821,7 +1856,10 @@
 			"data-es-ES": "Trucha arcoíris",
 			"data-de-DE": "Regenbogenforelle",
 			"data-zh-CN": "虹鳟鱼"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "139",
@@ -1840,7 +1878,10 @@
 			"data-es-ES": "Salmón",
 			"data-de-DE": "Lachs",
 			"data-zh-CN": "鲑鱼"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "140",
@@ -1859,7 +1900,11 @@
 			"data-es-ES": "Lucio",
 			"data-de-DE": "Glasaugenbarsch",
 			"data-zh-CN": "大眼鱼"
-		}
+		},
+		"seasons": [
+			"fall",
+			"winter"
+		]
 	},
 	{
 		"id": "141",
@@ -1878,7 +1923,10 @@
 			"data-es-ES": "Cachuelo",
 			"data-de-DE": "Barsch",
 			"data-zh-CN": "河鲈"
-		}
+		},
+		"seasons": [
+			"winter"
+		]
 	},
 	{
 		"id": "142",
@@ -1916,7 +1964,13 @@
 			"data-es-ES": "Pez gato",
 			"data-de-DE": "Katzenfisch",
 			"data-zh-CN": "鲶鱼"
-		}
+		},
+		"seasons": [
+			"spring",
+			"summer",
+			"fall",
+			"winter"
+		]
 	},
 	{
 		"id": "144",
@@ -1935,7 +1989,11 @@
 			"data-es-ES": "Sauri",
 			"data-de-DE": "Hecht",
 			"data-zh-CN": "狗鱼"
-		}
+		},
+		"seasons": [
+			"summer",
+			"winter"
+		]
 	},
 	{
 		"id": "145",
@@ -1954,7 +2012,11 @@
 			"data-es-ES": "Pez sol",
 			"data-de-DE": "Gotteslachs",
 			"data-zh-CN": "太阳鱼"
-		}
+		},
+		"seasons": [
+			"spring",
+			"summer"
+		]
 	},
 	{
 		"id": "146",
@@ -1973,7 +2035,11 @@
 			"data-es-ES": "Salmonete",
 			"data-de-DE": "Rotbarbe",
 			"data-zh-CN": "红鲻鱼"
-		}
+		},
+		"seasons": [
+			"summer",
+			"winter"
+		]
 	},
 	{
 		"id": "147",
@@ -1992,7 +2058,11 @@
 			"data-es-ES": "Arenque",
 			"data-de-DE": "Hering",
 			"data-zh-CN": "鲱鱼"
-		}
+		},
+		"seasons": [
+			"spring",
+			"winter"
+		]
 	},
 	{
 		"id": "148",
@@ -2011,7 +2081,11 @@
 			"data-es-ES": "Anguila",
 			"data-de-DE": "Aal",
 			"data-zh-CN": "鳗鱼"
-		}
+		},
+		"seasons": [
+			"spring",
+			"fall"
+		]
 	},
 	{
 		"id": "149",
@@ -2030,7 +2104,10 @@
 			"data-es-ES": "Pulpo",
 			"data-de-DE": "Oktopus",
 			"data-zh-CN": "章鱼"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "150",
@@ -2049,7 +2126,12 @@
 			"data-es-ES": "Pargo colorado",
 			"data-de-DE": "Riffbarsch",
 			"data-zh-CN": "红鲷鱼"
-		}
+		},
+		"seasons": [
+			"summer",
+			"fall",
+			"winter"
+		]
 	},
 	{
 		"id": "151",
@@ -2068,7 +2150,10 @@
 			"data-es-ES": "Calamar",
 			"data-de-DE": "Tintenfisch",
 			"data-zh-CN": "鱿鱼"
-		}
+		},
+		"seasons": [
+			"winter"
+		]
 	},
 	{
 		"id": "152",
@@ -2125,7 +2210,11 @@
 			"data-es-ES": "Pepino de mar",
 			"data-de-DE": "Seegurke",
 			"data-zh-CN": "海参"
-		}
+		},
+		"seasons": [
+			"fall",
+			"winter"
+		]
 	},
 	{
 		"id": "155",
@@ -2144,7 +2233,11 @@
 			"data-es-ES": "Superpepino",
 			"data-de-DE": "Super-Seegurke",
 			"data-zh-CN": "大海参"
-		}
+		},
+		"seasons": [
+			"summer",
+			"fall"
+		]
 	},
 	{
 		"id": "156",
@@ -2220,7 +2313,10 @@
 			"data-es-ES": "Pez carmesí",
 			"data-de-DE": "Purpurfisch",
 			"data-zh-CN": "绯红鱼"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "160",
@@ -2239,7 +2335,10 @@
 			"data-es-ES": "Rape",
 			"data-de-DE": "Anglerfisch",
 			"data-zh-CN": "鮟鱇鱼"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "161",
@@ -2296,7 +2395,10 @@
 			"data-es-ES": "Leyenda",
 			"data-de-DE": "Legende",
 			"data-zh-CN": "传说之鱼"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "164",
@@ -2619,7 +2721,10 @@
 			"data-es-ES": "Judía verde",
 			"data-de-DE": "Grüne Bohne",
 			"data-zh-CN": "青豆"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "190",
@@ -2638,7 +2743,10 @@
 			"data-es-ES": "Coliflor",
 			"data-de-DE": "Blumenkohl",
 			"data-zh-CN": "花椰菜"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "191",
@@ -2676,7 +2784,10 @@
 			"data-es-ES": "Patata",
 			"data-de-DE": "Kartoffel",
 			"data-zh-CN": "土豆"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "194",
@@ -3702,7 +3813,10 @@
 			"data-es-ES": "Ajo",
 			"data-de-DE": "Knoblauch",
 			"data-zh-CN": "蒜"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "250",
@@ -3721,7 +3835,10 @@
 			"data-es-ES": "Col rizada",
 			"data-de-DE": "Grünkohl",
 			"data-zh-CN": "甘蓝菜"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "251",
@@ -3759,7 +3876,10 @@
 			"data-es-ES": "Ruibarbo",
 			"data-de-DE": "Rhabarber",
 			"data-zh-CN": "大黄"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "253",
@@ -3797,7 +3917,10 @@
 			"data-es-ES": "Melón",
 			"data-de-DE": "Melone",
 			"data-zh-CN": "甜瓜"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "256",
@@ -3816,7 +3939,10 @@
 			"data-es-ES": "Tomate",
 			"data-de-DE": "Tomate",
 			"data-zh-CN": "西红柿"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "257",
@@ -3835,7 +3961,10 @@
 			"data-es-ES": "Colmenilla",
 			"data-de-DE": "Morchel",
 			"data-zh-CN": "羊肚菌"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "258",
@@ -3854,7 +3983,10 @@
 			"data-es-ES": "Arándano",
 			"data-de-DE": "Blaubeere",
 			"data-zh-CN": "蓝莓"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "259",
@@ -3873,7 +4005,10 @@
 			"data-es-ES": "Helecho",
 			"data-de-DE": "Straußfarn",
 			"data-zh-CN": "蕨菜"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "260",
@@ -3892,7 +4027,10 @@
 			"data-es-ES": "Chile",
 			"data-de-DE": "Peperoni",
 			"data-zh-CN": "辣椒"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "261",
@@ -3930,7 +4068,11 @@
 			"data-es-ES": "Trigo",
 			"data-de-DE": "Weizen",
 			"data-zh-CN": "小麦"
-		}
+		},
+		"seasons": [
+			"summer",
+			"fall"
+		]
 	},
 	{
 		"id": "264",
@@ -3949,7 +4091,10 @@
 			"data-es-ES": "Rábano",
 			"data-de-DE": "Radieschen",
 			"data-zh-CN": "萝卜"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "265",
@@ -3987,7 +4132,10 @@
 			"data-es-ES": "Lombarda",
 			"data-de-DE": "Rotkohl",
 			"data-zh-CN": "红叶卷心菜"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "267",
@@ -4006,7 +4154,11 @@
 			"data-es-ES": "Platija",
 			"data-de-DE": "Flunder",
 			"data-zh-CN": "比目鱼"
-		}
+		},
+		"seasons": [
+			"spring",
+			"summer"
+		]
 	},
 	{
 		"id": "268",
@@ -4025,7 +4177,10 @@
 			"data-es-ES": "Carambola",
 			"data-de-DE": "Sternfrucht",
 			"data-zh-CN": "杨桃"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "269",
@@ -4044,7 +4199,11 @@
 			"data-es-ES": "Carpa de medianoche",
 			"data-de-DE": "Mitternachtskarpfen",
 			"data-zh-CN": "午夜鲤鱼"
-		}
+		},
+		"seasons": [
+			"fall",
+			"winter"
+		]
 	},
 	{
 		"id": "270",
@@ -4063,7 +4222,11 @@
 			"data-es-ES": "Maíz",
 			"data-de-DE": "Mais",
 			"data-zh-CN": "玉米"
-		}
+		},
+		"seasons": [
+			"summer",
+			"fall"
+		]
 	},
 	{
 		"id": "271",
@@ -4082,7 +4245,10 @@
 			"data-es-ES": "Arroz sin moler",
 			"data-de-DE": "Ungemahlener Reis",
 			"data-zh-CN": "未碾米"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "272",
@@ -4101,7 +4267,10 @@
 			"data-es-ES": "Berenjena",
 			"data-de-DE": "Aubergine",
 			"data-zh-CN": "茄子"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "273",
@@ -4139,7 +4308,10 @@
 			"data-es-ES": "Alcachofa",
 			"data-de-DE": "Artischocke",
 			"data-zh-CN": "洋蓟"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "275",
@@ -4177,7 +4349,10 @@
 			"data-es-ES": "Calabaza",
 			"data-de-DE": "Kürbis",
 			"data-zh-CN": "南瓜"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "277",
@@ -4215,7 +4390,10 @@
 			"data-es-ES": "Col china",
 			"data-de-DE": "Senfkohl",
 			"data-zh-CN": "小白菜"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "279",
@@ -4253,7 +4431,10 @@
 			"data-es-ES": "Ñame",
 			"data-de-DE": "Süßkartoffel",
 			"data-zh-CN": "山药"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "281",
@@ -4272,7 +4453,10 @@
 			"data-es-ES": "Chantarela",
 			"data-de-DE": "Pfifferling",
 			"data-zh-CN": "鸡油菌"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "282",
@@ -4291,7 +4475,10 @@
 			"data-es-ES": "Grosella",
 			"data-de-DE": "Preiselbeere",
 			"data-zh-CN": "蔓越莓"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "283",
@@ -4310,7 +4497,10 @@
 			"data-es-ES": "Acebo",
 			"data-de-DE": "Stechpalme",
 			"data-zh-CN": "冬青树"
-		}
+		},
+		"seasons": [
+			"winter"
+		]
 	},
 	{
 		"id": "284",
@@ -4329,7 +4519,10 @@
 			"data-es-ES": "Remolacha",
 			"data-de-DE": "Rübe",
 			"data-zh-CN": "甜菜"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "286",
@@ -4519,7 +4712,10 @@
 			"data-es-ES": "Frambuesa",
 			"data-de-DE": "Lachsbeere",
 			"data-zh-CN": "美洲大树莓"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "297",
@@ -4595,7 +4791,10 @@
 			"data-es-ES": "Amaranto",
 			"data-de-DE": "Amarant",
 			"data-zh-CN": "苋菜"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "301",
@@ -4671,7 +4870,10 @@
 			"data-es-ES": "Lúpulo",
 			"data-de-DE": "Hopfen",
 			"data-zh-CN": "啤酒花"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "305",
@@ -5602,7 +5804,10 @@
 			"data-es-ES": "Amapola",
 			"data-de-DE": "Mohn",
 			"data-zh-CN": "虞美人花"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "378",
@@ -5792,7 +5997,10 @@
 			"data-es-ES": "Concha arcoíris",
 			"data-de-DE": "Regenbogenmuschel",
 			"data-zh-CN": "彩虹贝壳"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "395",
@@ -5830,7 +6038,10 @@
 			"data-es-ES": "Baya especiada",
 			"data-de-DE": "Gewürzbeere",
 			"data-zh-CN": "香味浆果"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "397",
@@ -5868,7 +6079,11 @@
 			"data-es-ES": "Uva",
 			"data-de-DE": "Weintraube",
 			"data-zh-CN": "葡萄"
-		}
+		},
+		"seasons": [
+			"summer",
+			"fall"
+		]
 	},
 	{
 		"id": "399",
@@ -5887,7 +6102,10 @@
 			"data-es-ES": "Cebolleta",
 			"data-de-DE": "Frühlingszwiebel",
 			"data-zh-CN": "大葱"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "400",
@@ -5906,7 +6124,10 @@
 			"data-es-ES": "Fresa",
 			"data-de-DE": "Erdbeere",
 			"data-zh-CN": "草莓"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "401",
@@ -5944,7 +6165,10 @@
 			"data-es-ES": "Guisante dulce",
 			"data-de-DE": "Edelwicke",
 			"data-zh-CN": "甜豌豆"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "403",
@@ -5982,7 +6206,12 @@
 			"data-es-ES": "Seta común",
 			"data-de-DE": "Gewöhnlicher Pilz",
 			"data-zh-CN": "普通蘑菇"
-		}
+		},
+		"seasons": [
+			"spring",
+			"summer",
+			"fall"
+		]
 	},
 	{
 		"id": "405",
@@ -6020,7 +6249,10 @@
 			"data-es-ES": "Ciruela salvaje",
 			"data-de-DE": "Wildpflaume",
 			"data-zh-CN": "野梅"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "407",
@@ -6058,7 +6290,10 @@
 			"data-es-ES": "Avellana",
 			"data-de-DE": "Haselnuss",
 			"data-zh-CN": "榛子"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "409",
@@ -6096,7 +6331,10 @@
 			"data-es-ES": "Mora",
 			"data-de-DE": "Brombeere",
 			"data-zh-CN": "黑莓"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "411",
@@ -6134,7 +6372,10 @@
 			"data-es-ES": "Raíz invernal",
 			"data-de-DE": "Winterwurzel",
 			"data-zh-CN": "冬根"
-		}
+		},
+		"seasons": [
+			"winter"
+		]
 	},
 	{
 		"id": "413",
@@ -6172,7 +6413,10 @@
 			"data-es-ES": "Fruta de cristal",
 			"data-de-DE": "Kristallfrucht",
 			"data-zh-CN": "水晶果"
-		}
+		},
+		"seasons": [
+			"winter"
+		]
 	},
 	{
 		"id": "415",
@@ -6210,7 +6454,10 @@
 			"data-es-ES": "Ñame nival",
 			"data-de-DE": "Schnee-Süßkartoffel",
 			"data-zh-CN": "雪山药"
-		}
+		},
+		"seasons": [
+			"winter"
+		]
 	},
 	{
 		"id": "417",
@@ -6229,7 +6476,10 @@
 			"data-es-ES": "Baya de gema dulce",
 			"data-de-DE": "Süße Edelsteinbeere",
 			"data-zh-CN": "宝石甜莓"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "418",
@@ -6248,7 +6498,10 @@
 			"data-es-ES": "Azafrán",
 			"data-de-DE": "Krokus",
 			"data-zh-CN": "番红花"
-		}
+		},
+		"seasons": [
+			"winter"
+		]
 	},
 	{
 		"id": "419",
@@ -6286,7 +6539,11 @@
 			"data-es-ES": "Seta roja",
 			"data-de-DE": "Roter Pilz",
 			"data-zh-CN": "红蘑菇"
-		}
+		},
+		"seasons": [
+			"summer",
+			"fall"
+		]
 	},
 	{
 		"id": "421",
@@ -6305,7 +6562,11 @@
 			"data-es-ES": "Girasol",
 			"data-de-DE": "Sonnenblume",
 			"data-zh-CN": "向日葵"
-		}
+		},
+		"seasons": [
+			"summer",
+			"fall"
+		]
 	},
 	{
 		"id": "422",
@@ -6324,7 +6585,10 @@
 			"data-es-ES": "Seta lila",
 			"data-de-DE": "Violetter Pilz",
 			"data-zh-CN": "紫蘑菇"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "423",
@@ -6533,7 +6797,11 @@
 			"data-es-ES": "Grano de café",
 			"data-de-DE": "Kaffeebohne",
 			"data-zh-CN": "咖啡豆"
-		}
+		},
+		"seasons": [
+			"spring",
+			"summer"
+		]
 	},
 	{
 		"id": "434",
@@ -9041,7 +9309,10 @@
 			"data-es-ES": "Tulipán",
 			"data-de-DE": "Tulpe",
 			"data-zh-CN": "郁金香"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "593",
@@ -9060,7 +9331,10 @@
 			"data-es-ES": "Lentejuela de verano",
 			"data-de-DE": "Sommerschmuck",
 			"data-zh-CN": "夏季亮片"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "595",
@@ -9079,7 +9353,10 @@
 			"data-es-ES": "Rosa hada",
 			"data-de-DE": "Feenrose",
 			"data-zh-CN": "玫瑰仙子"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "597",
@@ -9098,7 +9375,10 @@
 			"data-es-ES": "Allium azul",
 			"data-de-DE": "Blaue Jazz",
 			"data-zh-CN": "蓝爵"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "599",
@@ -10105,7 +10385,11 @@
 			"data-es-ES": "Esturión",
 			"data-de-DE": "Stör",
 			"data-zh-CN": "鲟鱼"
-		}
+		},
+		"seasons": [
+			"summer",
+			"winter"
+		]
 	},
 	{
 		"id": "699",
@@ -10124,7 +10408,11 @@
 			"data-es-ES": "Trucha tigre",
 			"data-de-DE": "Tigerforelle",
 			"data-zh-CN": "虎纹鳟鱼"
-		}
+		},
+		"seasons": [
+			"fall",
+			"winter"
+		]
 	},
 	{
 		"id": "700",
@@ -10162,7 +10450,11 @@
 			"data-es-ES": "Tilapia",
 			"data-de-DE": "Buntbarsch",
 			"data-zh-CN": "罗非鱼"
-		}
+		},
+		"seasons": [
+			"summer",
+			"fall"
+		]
 	},
 	{
 		"id": "702",
@@ -10219,7 +10511,10 @@
 			"data-es-ES": "Dorado",
 			"data-de-DE": "Goldmakrele",
 			"data-zh-CN": "麻哈脂鲤"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "705",
@@ -10238,7 +10533,11 @@
 			"data-es-ES": "Atún blanco",
 			"data-de-DE": "Weißer Thun",
 			"data-zh-CN": "青花鱼"
-		}
+		},
+		"seasons": [
+			"fall",
+			"winter"
+		]
 	},
 	{
 		"id": "706",
@@ -10257,7 +10556,12 @@
 			"data-es-ES": "Sábalo",
 			"data-de-DE": "Blaubarsch",
 			"data-zh-CN": "西鲱"
-		}
+		},
+		"seasons": [
+			"spring",
+			"summer",
+			"fall"
+		]
 	},
 	{
 		"id": "707",
@@ -10276,7 +10580,10 @@
 			"data-es-ES": "Bacalao largo",
 			"data-de-DE": "Lengdorsch",
 			"data-zh-CN": "蛇齿单线鱼"
-		}
+		},
+		"seasons": [
+			"winter"
+		]
 	},
 	{
 		"id": "708",
@@ -10295,7 +10602,12 @@
 			"data-es-ES": "Fletán",
 			"data-de-DE": "Heilbutt",
 			"data-zh-CN": "大比目鱼"
-		}
+		},
+		"seasons": [
+			"spring",
+			"summer",
+			"winter"
+		]
 	},
 	{
 		"id": "709",
@@ -11131,7 +11443,10 @@
 			"data-es-ES": "Pez glacial",
 			"data-de-DE": "Gletscherfisch",
 			"data-zh-CN": "冰川鱼"
-		}
+		},
+		"seasons": [
+			"winter"
+		]
 	},
 	{
 		"id": "784",
@@ -11416,7 +11731,10 @@
 			"data-es-ES": "Calamar de medianoche",
 			"data-de-DE": "Mitternächtlicher Tintenfisch",
 			"data-zh-CN": "午夜鱿鱼"
-		}
+		},
+		"seasons": [
+			"winter"
+		]
 	},
 	{
 		"id": "799",
@@ -11435,7 +11753,10 @@
 			"data-es-ES": "Pez asustado",
 			"data-de-DE": "Gruselfisch",
 			"data-zh-CN": "幽灵鱼"
-		}
+		},
+		"seasons": [
+			"winter"
+		]
 	},
 	{
 		"id": "800",
@@ -11454,7 +11775,10 @@
 			"data-es-ES": "Pez gota",
 			"data-de-DE": "Blobfisch",
 			"data-zh-CN": "水滴鱼"
-		}
+		},
+		"seasons": [
+			"winter"
+		]
 	},
 	{
 		"id": "801",
@@ -14399,7 +14723,10 @@
 			"data-es-ES": "Zanahoria",
 			"data-de-DE": "Karotte",
 			"data-zh-CN": "胡萝卜"
-		}
+		},
+		"seasons": [
+			"spring"
+		]
 	},
 	{
 		"id": "SummerSquashSeeds",
@@ -14437,7 +14764,10 @@
 			"data-es-ES": "Calabaza amarilla",
 			"data-de-DE": "Sommerkürbis",
 			"data-zh-CN": "金皮西葫芦"
-		}
+		},
+		"seasons": [
+			"summer"
+		]
 	},
 	{
 		"id": "BroccoliSeeds",
@@ -14475,7 +14805,10 @@
 			"data-es-ES": "Brócoli",
 			"data-de-DE": "Brokkoli",
 			"data-zh-CN": "西蓝花"
-		}
+		},
+		"seasons": [
+			"fall"
+		]
 	},
 	{
 		"id": "PowdermelonSeeds",

@@ -1,10 +1,18 @@
 package com.example.svgifts;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONArray;
@@ -22,8 +30,13 @@ public class MainActivity extends AppCompatActivity {
     private final List<NPCTaste> allNPCs = new ArrayList<>();
     private final List<String> universalLoves = new ArrayList<>();
     private final List<String> universalLikes = new ArrayList<>();
+    private final List<String> springItemNames = new ArrayList<>();
+    private final List<String> summerItemNames = new ArrayList<>();
+    private final List<String> fallItemNames = new ArrayList<>();
+    private final List<String> winterItemNames = new ArrayList<>();
     AutoCompleteTextView autoCompleteSearch;
     TextView txtLoveResults, txtLikeResults;
+    ImageView imgDisplay;
     Button btnCheck;
     Object selectedObject = null;
 
@@ -36,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         autoCompleteSearch = findViewById(R.id.autoCompleteSearch);
         txtLoveResults = findViewById(R.id.txtLoveResults);
         txtLikeResults = findViewById(R.id.txtLikeResults);
+        imgDisplay = findViewById(R.id.imgDisplay);
         btnCheck = findViewById(R.id.btnCheck);
 
         // 2. โหลดข้อมูล (ฟังก์ชันเดิมที่เขียนไว้)
@@ -66,48 +80,247 @@ public class MainActivity extends AppCompatActivity {
             if (selectedObject instanceof StardewItem) {
                 StardewItem item = (StardewItem) selectedObject;
                 updateUIResults(item.getId(), item.getName());
+                displayImage("items/" + item.getId() + ".png", item.getImageBase64());
             } else if (selectedObject instanceof NPCTaste) {
-                updateNPCUIResults((NPCTaste) selectedObject);
+                NPCTaste npc = (NPCTaste) selectedObject;
+                updateNPCUIResults(npc);
+                displayImage("portraits/" + npc.getNpcName() + ".png", null);
             }
         });
     }
 
+    private void displayImage(String path, String base64Data) {
+        try {
+            if (base64Data != null && !base64Data.isEmpty()) {
+                byte[] decodedString = android.util.Base64.decode(base64Data, android.util.Base64.DEFAULT);
+                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                imgDisplay.setImageBitmap(decodedByte);
+                imgDisplay.setVisibility(android.view.View.VISIBLE);
+                return;
+            }
+
+            InputStream is = getAssets().open(path);
+            Bitmap bitmap = BitmapFactory.decodeStream(is);
+            is.close();
+
+            if (bitmap != null) {
+                // Crop to 64x64 if it's a portrait (sprite sheet)
+                if (path.startsWith("portraits/") && bitmap.getWidth() >= 64 && bitmap.getHeight() >= 64) {
+                    bitmap = Bitmap.createBitmap(bitmap, 0, 0, 64, 64);
+                }
+                imgDisplay.setImageBitmap(bitmap);
+                imgDisplay.setVisibility(android.view.View.VISIBLE);
+            } else {
+                imgDisplay.setVisibility(android.view.View.GONE);
+            }
+        } catch (IOException e) {
+            imgDisplay.setVisibility(android.view.View.GONE);
+            Log.w("StardewTest", "Image not found: " + path);
+        }
+    }
+
     private void updateNPCUIResults(NPCTaste npc) {
-        List<String> loveNames = new ArrayList<>();
-        List<String> likeNames = new ArrayList<>();
+        List<String> loveIds = new ArrayList<>();
+        List<String> likeIds = new ArrayList<>();
 
         // รวม Universal เข้าไปก่อน
-        for (String id : universalLoves) {
-            String name = getItemNameById(id);
-            if (name != null) loveNames.add(name);
-        }
-        for (String id : universalLikes) {
-            String name = getItemNameById(id);
-            if (name != null) likeNames.add(name);
-        }
+        loveIds.addAll(universalLoves);
+        likeIds.addAll(universalLikes);
 
         // เพิ่มของเฉพาะตัว NPC
         for (String id : npc.getLoveIDs()) {
-            String name = getItemNameById(id);
-            if (name != null && !loveNames.contains(name)) loveNames.add(name);
+            if (!loveIds.contains(id)) loveIds.add(id);
         }
         for (String id : npc.getLikeIDs()) {
-            String name = getItemNameById(id);
-            if (name != null && !likeNames.contains(name)) likeNames.add(name);
+            if (!likeIds.contains(id)) likeIds.add(id);
         }
 
-        txtLoveResults.setText(loveNames.isEmpty() ? "ไม่มี" : String.join(", ", loveNames));
-        txtLikeResults.setText(likeNames.isEmpty() ? "ไม่มี" : String.join(", ", likeNames));
+        txtLoveResults.setText(formatSeasonalItemList(loveIds));
+        txtLikeResults.setText(formatSeasonalItemList(likeIds));
     }
 
-    private String getItemNameById(String id) {
+    private CharSequence formatSeasonalItemList(List<String> itemIds) {
+        if (itemIds.isEmpty()) return "ไม่มี";
+
+        List<String> springIds = new ArrayList<>();
+        List<String> summerIds = new ArrayList<>();
+        List<String> fallIds = new ArrayList<>();
+        List<String> winterIds = new ArrayList<>();
+        List<String> otherIds = new ArrayList<>();
+
+        for (String id : itemIds) {
+            StardewItem item = getItemById(id);
+            if (item != null) {
+                String name = item.getName();
+                boolean inSpring = springItemNames.contains(name);
+                boolean inSummer = summerItemNames.contains(name);
+                boolean inFall = fallItemNames.contains(name);
+                boolean inWinter = winterItemNames.contains(name);
+
+                if (inSpring && inSummer && inFall && inWinter) {
+                    otherIds.add(id);
+                } else {
+                    boolean categorized = false;
+                    if (inSpring) {
+                        springIds.add(id);
+                        categorized = true;
+                    }
+                    if (inSummer) {
+                        summerIds.add(id);
+                        categorized = true;
+                    }
+                    if (inFall) {
+                        fallIds.add(id);
+                        categorized = true;
+                    }
+                    if (inWinter) {
+                        winterIds.add(id);
+                        categorized = true;
+                    }
+
+                    if (!categorized) {
+                        otherIds.add(id);
+                    }
+                }
+            }
+        }
+
+        SpannableStringBuilder ssb = new SpannableStringBuilder();
+        
+        // Spring Section
+        if (!springIds.isEmpty()) {
+            appendSeasonalSection(ssb, "Spring Available:", 0xFFE91E63, springIds);
+        }
+
+        // Summer Section
+        if (!summerIds.isEmpty()) {
+            if (ssb.length() > 0) ssb.append("\n\n");
+            appendSeasonalSection(ssb, "Summer Available:", 0xFFFF9800, summerIds);
+        }
+
+        // Fall Section
+        if (!fallIds.isEmpty()) {
+            if (ssb.length() > 0) ssb.append("\n\n");
+            appendSeasonalSection(ssb, "Fall Available:", 0xFF795548, fallIds);
+        }
+
+        // Winter Section
+        if (!winterIds.isEmpty()) {
+            if (ssb.length() > 0) ssb.append("\n\n");
+            appendSeasonalSection(ssb, "Winter Available:", 0xFF2196F3, winterIds);
+        }
+
+        // Other Section
+        if (!otherIds.isEmpty()) {
+            if (ssb.length() > 0) ssb.append("\n\n");
+            int start = ssb.length();
+            ssb.append("Other:\n");
+            ssb.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), start, ssb.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            ssb.append(formatItemList(otherIds));
+        }
+
+        return ssb;
+    }
+
+    private void appendSeasonalSection(SpannableStringBuilder ssb, String title, int color, List<String> ids) {
+        int start = ssb.length();
+        ssb.append(title).append("\n");
+        ssb.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), start, ssb.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ssb.setSpan(new android.text.style.ForegroundColorSpan(color), start, ssb.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ssb.append(formatItemList(ids));
+    }
+
+    private CharSequence formatItemList(List<String> itemIds) {
+        if (itemIds.isEmpty()) return "ไม่มี";
+        SpannableStringBuilder ssb = new SpannableStringBuilder();
+        int size = (int) (txtLoveResults.getTextSize() * 1.1);
+
+        for (int i = 0; i < itemIds.size(); i++) {
+            String id = itemIds.get(i);
+            StardewItem item = getItemById(id);
+            if (item == null) continue;
+
+            int start = ssb.length();
+            ssb.append(" "); // Placeholder for icon
+            Drawable d = getItemDrawable(item);
+            if (d != null) {
+                d.setBounds(0, 0, size, size);
+                ssb.setSpan(new ImageSpan(d, ImageSpan.ALIGN_BASELINE), start, start + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+            ssb.append("\u00A0"); // Non-breaking space to glue icon to text
+            ssb.append(item.getName());
+
+            if (i < itemIds.size() - 1) {
+                ssb.append("\t"); // Normal spaces here to allow wrap between items
+            }
+        }
+        return ssb;
+    }
+
+    private CharSequence formatNpcList(List<String> npcNames) {
+        if (npcNames.isEmpty()) return "ไม่มี";
+        SpannableStringBuilder ssb = new SpannableStringBuilder();
+        int size = (int) (txtLoveResults.getTextSize() * 1.1);
+
+        for (int i = 0; i < npcNames.size(); i++) {
+            String name = npcNames.get(i);
+            int start = ssb.length();
+            ssb.append(" "); // Placeholder for icon
+            Drawable d = getPortraitDrawable(name);
+            if (d != null) {
+                d.setBounds(0, 0, size, size);
+                ssb.setSpan(new ImageSpan(d, ImageSpan.ALIGN_BASELINE), start, start + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+            ssb.append("\u00A0"); // Non-breaking space to glue icon to text
+            ssb.append(name);
+
+            if (i < npcNames.size() - 1) {
+                ssb.append("\t"); // Normal spaces here to allow wrap between items
+            }
+        }
+        return ssb;
+    }
+
+    private Drawable getPortraitDrawable(String npcName) {
+        try {
+            InputStream is = getAssets().open("portraits/" + npcName + ".png");
+            Bitmap bitmap = BitmapFactory.decodeStream(is);
+            is.close();
+
+            if (bitmap != null && bitmap.getWidth() >= 64 && bitmap.getHeight() >= 64) {
+                // Crop the first 64x64 frame for the small icons in the list too
+                bitmap = Bitmap.createBitmap(bitmap, 0, 0, 64, 64);
+                return new BitmapDrawable(getResources(), bitmap);
+            }
+            return new BitmapDrawable(getResources(), bitmap);
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    private Drawable getItemDrawable(StardewItem item) {
+        if (item.getImageBase64() != null && !item.getImageBase64().isEmpty()) {
+            byte[] decodedString = android.util.Base64.decode(item.getImageBase64(), android.util.Base64.DEFAULT);
+            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            return new BitmapDrawable(getResources(), decodedByte);
+        }
+        return null;
+    }
+
+    private StardewItem getItemById(String id) {
         for (StardewItem item : allItems) {
             if (item.getId().equals(id)) {
-                return item.getName();
+                return item;
             }
         }
         return null;
     }
+
+    private String getItemNameById(String id) {
+        StardewItem item = getItemById(id);
+        return (item != null) ? item.getName() : null;
+    }
+
     private void updateUIResults(String itemId, String itemName) {
         List<String> lovers = new ArrayList<>();
         List<String> likers = new ArrayList<>();
@@ -127,8 +340,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        txtLoveResults.setText(lovers.isEmpty() ? "ไม่มี" : String.join(", ", lovers));
-        txtLikeResults.setText(likers.isEmpty() ? "ไม่มี" : String.join(", ", likers));
+        txtLoveResults.setText(formatNpcList(lovers));
+        txtLikeResults.setText(formatNpcList(likers));
     }
     private void testSearch(String itemId, String itemName) {
         Log.d("StardewTest", "--- กำลังค้นหา: " + itemName + " (ID: " + itemId + ") ---");
@@ -168,13 +381,26 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0; i < objectsArray.length(); i++) {
                     JSONObject itemDetails = objectsArray.getJSONObject(i);
                     String id = itemDetails.getString("id");
+                    String imageBase64 = itemDetails.optString("image", null);
                     
                     // ดึงชื่อภาษาอังกฤษจาก names -> data-en-US
                     JSONObject names = itemDetails.getJSONObject("names");
                     String name = names.getString("data-en-US");
 
                     // สร้าง Object และเก็บลง List
-                    allItems.add(new StardewItem(id, name));
+                    allItems.add(new StardewItem(id, name, imageBase64));
+
+                    // โหลดข้อมูลฤดูกาลจาก JSON
+                    JSONArray seasons = itemDetails.optJSONArray("seasons");
+                    if (seasons != null) {
+                        for (int j = 0; j < seasons.length(); j++) {
+                            String season = seasons.getString(j);
+                            if (season.equals("spring")) springItemNames.add(name);
+                            else if (season.equals("summer")) summerItemNames.add(name);
+                            else if (season.equals("fall")) fallItemNames.add(name);
+                            else if (season.equals("winter")) winterItemNames.add(name);
+                        }
+                    }
                 }
             }
 

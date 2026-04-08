@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"
-        android:hint="พิมพ์ชื่อไอเทม หรือ ชื่อ NPC"
+        android:hint="Item or NPC name"
         android:padding="12dp" />
 
     <Button
@@ -31,12 +31,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:backgroundTint="#8D6E63"
-        android:text="ตรวจสอบข้อมูล" />
+        android:text="Check Gift" />
 
+    <ImageView
+        android:id="@+id/imgDisplay"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:scaleType="fitCenter"
+        android:visibility="gone" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="499dp"
         android:layout_marginTop="16dp">
 
         <LinearLayout
@@ -48,6 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="💜 Love"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#D81B60"
                 android:textStyle="bold" />
 
@@ -55,13 +64,16 @@
                 android:id="@+id/txtLoveResults"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
                 android:layout_marginBottom="16dp"
-                android:text="ยังไม่มีข้อมูล" />
+                android:text="-"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="😊 Like"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#388E3C"
                 android:textStyle="bold" />
 
@@ -69,7 +81,9 @@
                 android:id="@+id/txtLikeResults"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ยังไม่มีข้อมูล" />
+                android:layout_marginTop="6dp"
+                android:text="-"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         </LinearLayout>
     </ScrollView>
