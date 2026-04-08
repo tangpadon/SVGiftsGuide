@@ -383,9 +383,8 @@ public class MainActivity extends AppCompatActivity {
                     String id = itemDetails.getString("id");
                     String imageBase64 = itemDetails.optString("image", null);
                     
-                    // ดึงชื่อภาษาอังกฤษจาก names -> data-en-US
-                    JSONObject names = itemDetails.getJSONObject("names");
-                    String name = names.getString("data-en-US");
+                    // ดึงชื่อจากฟิลด์ "name"
+                    String name = itemDetails.optString("name", "Unknown Item");
 
                     // สร้าง Object และเก็บลง List
                     allItems.add(new StardewItem(id, name, imageBase64));
