@@ -1,0 +1,1179 @@
+[
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Aegis_Elixir",
+    "name": "Aegis Elixir",
+    "image": "Aegis Elixir.png",
+    "category": "-7",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Aged_Blue_Moon_Wine",
+    "name": "Aged Blue Moon Wine",
+    "image": "Aged Blue Moon Wine.png",
+    "category": "-2",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Ancient_Fiber",
+    "name": "Ancient Fiber",
+    "image": "Ancient Fiber.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Armor_Elixir",
+    "name": "Armor Elixir",
+    "image": "Armor Elixir.png",
+    "category": "-7",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Aurora_Vineyard_Property_Deed",
+    "name": "Aurora Vineyard Property Deed",
+    "image": "Aurora Vineyard Property Deed.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Baby_Lunaloo",
+    "name": "Baby Lunaloo",
+    "image": "Baby Lunaloo.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Baked_Berry_Oatmeal",
+    "name": "Baked Berry Oatmeal",
+    "image": "Baked Berry Oatmeal.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Barbarian_Elixir",
+    "name": "Barbarian Elixir",
+    "image": "Barbarian Elixir.png",
+    "category": "-7",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Bearberrys",
+    "name": "Bearberrys",
+    "image": "Bearberrys.png",
+    "seasons": null,
+    "category": "-79"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Big_Bark_Burger",
+    "name": "Big Bark Burger",
+    "image": "Big Bark Burger.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Big_Conch",
+    "name": "Big Conch",
+    "image": "Big Conch.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Blue_Moon_Wine",
+    "name": "Blue Moon Wine",
+    "image": "Blue Moon Wine.png",
+    "category": "-2",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Bonefish",
+    "name": "Bonefish",
+    "image": "Bonefish.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Bull_Trout",
+    "name": "Bull Trout",
+    "image": "Bull Trout.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Butterfish",
+    "name": "Butterfish",
+    "image": "Butterfish.png",
+    "category": "-4",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Clownfish",
+    "name": "Clownfish",
+    "image": "Clownfish.png",
+    "seasons": [
+      "summer"
+    ],
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Daggerfish",
+    "name": "Daggerfish",
+    "image": "Daggerfish.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Dewdrop_Berry",
+    "name": "Dewdrop Berry",
+    "image": "Dewdrop Berry.png",
+    "seasons": null,
+    "category": "-79"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Dried_Sand_Dollar",
+    "name": "Dried Sand Dollar",
+    "image": "Dried Sand Dollar.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Dulse_Seaweed",
+    "name": "Dulse Seaweed",
+    "image": "Dulse Seaweed.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Ferngill_Primrose",
+    "name": "Ferngill Primrose",
+    "image": "Ferngill Primrose.png",
+    "seasons": null,
+    "category": "-80"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Flower_Cookie",
+    "name": "Flower Cookie",
+    "image": "Flower Cookie.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Frog",
+    "name": "Frog",
+    "image": "Frog.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Frog_Legs",
+    "name": "Frog Legs",
+    "image": "Frog Legs.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Gemfish",
+    "name": "Gemfish",
+    "image": "Gemfish.png",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Glazed_Butterfish",
+    "name": "Glazed Butterfish",
+    "image": "Glazed Butterfish.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Golden_Ocean_Flower",
+    "name": "Golden Ocean Flower",
+    "image": "Golden Ocean Flower.png",
+    "seasons": null,
+    "category": "-80"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Goldenfish",
+    "name": "Goldenfish",
+    "image": "Goldenfish.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Golden_Key",
+    "name": "Golden Key",
+    "image": "Golden Key.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Goldenrod",
+    "name": "Goldenrod",
+    "image": "Goldenrod.png",
+    "seasons": null,
+    "category": "-80"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Grampleton_Orange_Chicken",
+    "name": "Grampleton Orange Chicken",
+    "image": "Grampleton Orange Chicken.png",
+    "seasons": null,
+    "category": "-79"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Grass_Carp",
+    "name": "Grass Carp",
+    "image": "Grass Carp.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Gravity_Elixir",
+    "name": "Gravity Elixir",
+    "image": "Gravity Elixir.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Green_Mushroom",
+    "name": "Green Mushroom",
+    "image": "Green Mushroom.png",
+    "seasons": null,
+    "category": "-81"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Haste_Elixir",
+    "name": "Haste Elixir",
+    "image": "Haste Elixir.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Hero_Elixir",
+    "name": "Hero Elixir",
+    "image": "Hero Elixir.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Joja_Berry",
+    "name": "Joja Berry",
+    "image": "Joja Berry.png",
+    "seasons": null,
+    "category": "-79"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Joja_Veggie",
+    "name": "Joja Veggie",
+    "image": "Joja Veggie.png",
+    "seasons": null,
+    "category": "-5"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_King_Salmon",
+    "name": "King Salmon",
+    "image": "King Salmon.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Kittyfish",
+    "name": "Kittyfish",
+    "image": "Kittyfish.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Lance's_Schedule",
+    "name": "Lance's Schedule",
+    "image": "Lance's Schedule.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Castle_Village_Outpost_Vendor_Schedule",
+    "name": "Castle Village Outpost Vendor Schedule",
+    "image": "Castle Village Outpost Vendor Schedule.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Lightning_Elixir",
+    "name": "Lightning Elixir",
+    "image": "Lightning Elixir.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Lucky_Four_Leaf_Clover",
+    "name": "Lucky Four Leaf Clover",
+    "image": "Lucky Four Leaf Clover.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Lunaloo",
+    "name": "Lunaloo",
+    "image": "Lunaloo.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Mermaid's_Bracelet",
+    "name": "Mermaid's Bracelet",
+    "image": "Mermaid's Bracelet.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Meteor_Carp",
+    "name": "Meteor Carp",
+    "image": "Meteor Carp.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Minnow",
+    "name": "Minnow",
+    "image": "Minnow.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Mixed_Berry_Pie",
+    "name": "Mixed Berry Pie",
+    "image": "Mixed Berry Pie.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Monster_Fruit",
+    "name": "Monster Fruit",
+    "image": "Monster Fruit.png",
+    "seasons": null,
+    "category": "-79"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Monster_Mushroom",
+    "name": "Monster Mushroom",
+    "image": "Monster Mushroom.png",
+    "seasons": null,
+    "category": "-81"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Mushroom_Berry_Rice",
+    "name": "Mushroom Berry Rice",
+    "image": "Mushroom Berry Rice.png",
+    "seasons": null,
+    "category": "-79"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Mushroom_Colony",
+    "name": "Mushroom Colony",
+    "image": "Mushroom Colony.png",
+    "seasons": null,
+    "category": "-81"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Ornate_Treasure_Chest",
+    "name": "Ornate Treasure Chest",
+    "image": "Ornate Treasure Chest.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Poison_Mushroom",
+    "name": "Poison Mushroom",
+    "image": "Poison Mushroom.png",
+    "seasons": null,
+    "category": "-81"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Property_Deed",
+    "name": "Property Deed",
+    "image": "Property Deed.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Puppyfish",
+    "name": "Puppyfish",
+    "image": "Puppyfish.png",
+    "category": "-4",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Radioactive_Bass",
+    "name": "Radioactive Bass",
+    "image": "Radioactive Bass.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Razor_Trout",
+    "name": "Razor Trout",
+    "image": "Razor Trout.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Red_Baneberry",
+    "name": "Red Baneberry",
+    "image": "Red Baneberry.png",
+    "seasons": null,
+    "category": "-79"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Rusty_Blade",
+    "name": "Rusty Blade",
+    "image": "Rusty Blade.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Salal_Berry",
+    "name": "Salal Berry",
+    "image": "Salal Berry.png",
+    "seasons": null,
+    "category": "-79"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Sea_Sponge",
+    "name": "Sea Sponge",
+    "image": "Sea Sponge.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Seahorse",
+    "name": "Seahorse",
+    "image": "Seahorse.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Seaweed_Salad",
+    "name": "Seaweed Salad",
+    "image": "Seaweed Salad.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Shiny_Lunaloo",
+    "name": "Shiny Lunaloo",
+    "image": "Shiny Lunaloo.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Slime_Berry",
+    "name": "Slime Berry",
+    "image": "Slime Berry.png",
+    "seasons": null,
+    "category": "-79"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Smelly_Rafflesia",
+    "name": "Smelly Rafflesia",
+    "image": "Smelly Rafflesia.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Snatcher_Worm",
+    "name": "Snatcher Worm",
+    "image": "Snatcher Worm.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Sports_Drink",
+    "name": "Sports Drink",
+    "image": "Sports Drink.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Stamina_Capsule",
+    "name": "Stamina Capsule",
+    "image": "Stamina Capsule.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Starfish",
+    "name": "Starfish",
+    "image": "Starfish.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Super_Joja_Cola",
+    "name": "Super Joja Cola",
+    "image": "Super Joja Cola.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Super_Starfruit",
+    "name": "Super Starfruit",
+    "image": "Super Starfruit.png",
+    "seasons": null,
+    "category": "-79"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Swirl_Stone",
+    "name": "Swirl Stone",
+    "image": "Swirl Stone.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Thistle",
+    "name": "Thistle",
+    "image": "Thistle.png",
+    "seasons": null,
+    "category": "-80"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Torpedo_Trout",
+    "name": "Torpedo Trout",
+    "image": "Torpedo Trout.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Undeadfish",
+    "name": "Undeadfish",
+    "image": "Undeadfish.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Void_Delight",
+    "name": "Void Delight",
+    "image": "Void Delight.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Void_Eel",
+    "name": "Void Eel",
+    "image": "Void Eel.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Void_Pebble",
+    "name": "Void Pebble",
+    "image": "Void Pebble.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Void_Root",
+    "name": "Void Root",
+    "image": "Void Root.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Void_Salmon_Sushi",
+    "name": "Void Salmon Sushi",
+    "image": "Void Salmon Sushi.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Void_Shard",
+    "name": "Void Shard",
+    "image": "Void Shard.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Void_Soul",
+    "name": "Void Soul",
+    "image": "Void Soul.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Water_Grub",
+    "name": "Water Grub",
+    "image": "Water Grub.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Winter_Star_Rose",
+    "name": "Winter Star Rose",
+    "image": "Winter Star Rose.png",
+    "seasons": null,
+    "category": "-80"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Ancient_Ferns_Seed",
+    "name": "Ancient Ferns Seed",
+    "image": "Ancient Ferns Seed.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Fungus_Seed",
+    "name": "Fungus Seed",
+    "image": "Fungus Seed.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Joja_Berry_Starter",
+    "name": "Joja Berry Starter",
+    "image": "Joja Berry Starter.png",
+    "seasons": null,
+    "category": "-79"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Joja_Veggie_Seeds",
+    "name": "Joja Veggie Seeds",
+    "image": "Joja Veggie Seeds.png",
+    "seasons": null,
+    "category": "-5"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Stalk_Seed",
+    "name": "Stalk Seed",
+    "image": "Stalk Seed.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Shrub_Seed",
+    "name": "Shrub Seed",
+    "image": "Shrub Seed.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Void_Seed",
+    "name": "Void Seed",
+    "image": "Void Seed.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Slime_Seed",
+    "name": "Slime Seed",
+    "image": "Slime Seed.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Pear",
+    "name": "Pear",
+    "image": "Pear.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Pear_Sapling",
+    "name": "Pear Sapling",
+    "image": "Pear Sapling.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Nectarine",
+    "name": "Nectarine",
+    "image": "Nectarine.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Nectarine_Sapling",
+    "name": "Nectarine Sapling",
+    "image": "Nectarine Sapling.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Persimmon",
+    "name": "Persimmon",
+    "image": "Persimmon.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Persimmon_Sapling",
+    "name": "Persimmon Sapling",
+    "image": "Persimmon Sapling.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Money_Bag",
+    "name": "Money Bag",
+    "image": "Money Bag.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Tree_Coin",
+    "name": "Tree Coin",
+    "image": "Tree Coin.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Birch_Seed",
+    "name": "Birch Seed",
+    "image": "Birch Seed.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Fir_Cone",
+    "name": "Fir Cone",
+    "image": "Fir Cone.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Birch_Water",
+    "name": "Birch Water",
+    "image": "Birch Water.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Fir_Wax",
+    "name": "Fir Wax",
+    "image": "Fir Wax.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Birch_Syrup",
+    "name": "Birch Syrup",
+    "image": "Birch Syrup.png",
+    "seasons": null,
+    "category": "-2"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Seed_Cookie",
+    "name": "Seed Cookie",
+    "image": "Seed Cookie.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Candy",
+    "name": "Candy",
+    "image": "Candy.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Cucumber",
+    "name": "Cucumber",
+    "image": "Cucumber.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Cucumber_Seed",
+    "name": "Cucumber Seed",
+    "image": "Cucumber Seed.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Butternut_Squash",
+    "name": "Butternut Squash",
+    "image": "Butternut Squash.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Butternut_Squash_Seed",
+    "name": "Butternut Squash Seed",
+    "image": "Butternut Squash Seed.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Sweet_Potato",
+    "name": "Sweet Potato",
+    "image": "Sweet Potato.png",
+    "seasons": null,
+    "category": "-75"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Sweet_Potato_Seed",
+    "name": "Sweet Potato Seed",
+    "image": "Sweet Potato Seed.png",
+    "seasons": null,
+    "category": "-75"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Gold_Carrot",
+    "name": "Gold Carrot",
+    "image": "Gold Carrot.png",
+    "seasons": null,
+    "category": "-75"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Gold_Carrot_Seed",
+    "name": "Gold Carrot Seed",
+    "image": "Gold Carrot Seed.png",
+    "seasons": null,
+    "category": "-75"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Fossilized_Apple",
+    "name": "Fossilized Apple",
+    "image": "Fossilized Apple.png",
+    "seasons": null,
+    "category": "-79"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Rusty_Shield",
+    "name": "Rusty Shield",
+    "image": "Rusty Shield.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Amber",
+    "name": "Amber",
+    "image": "Amber.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Stone_of_Yoba",
+    "name": "Stone of Yoba",
+    "image": "Stone of Yoba.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Faded_Button",
+    "name": "Faded Button",
+    "image": "Faded Button.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Boomerang",
+    "name": "Boomerang",
+    "image": "Boomerang.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Old_Coin",
+    "name": "Old Coin",
+    "image": "Old Coin.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Vegan_Cone",
+    "name": "Vegan Cone",
+    "image": "Vegan Cone.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Ice_Cream_Sundae",
+    "name": "Ice Cream Sundae",
+    "image": "Ice Cream Sundae.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Prismatic_Pop",
+    "name": "Prismatic Pop",
+    "image": "Prismatic Pop.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Chocolate_Truffle_Bar",
+    "name": "Chocolate Truffle Bar",
+    "image": "Chocolate Truffle Bar.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Small_Hardwood_Fence_Tilesheet",
+    "name": "Small Hardwood Fence",
+    "image": "Small Hardwood Fence.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Hedge_Fence_Tilesheet",
+    "name": "Hedge Fence",
+    "image": "Hedge Fence.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Fish_Dumpling",
+    "name": "Fish Dumpling",
+    "image": "Fish Dumpling.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Gingerbread_Man",
+    "name": "Gingerbread Man",
+    "image": "Gingerbread Man.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Nectarine_Fruit_Bread",
+    "name": "Nectarine Fruit Bread",
+    "image": "Nectarine Fruit Bread.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Ramen",
+    "name": "Ramen",
+    "image": "Ramen.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Marsh_Tonic",
+    "name": "Marsh Tonic",
+    "image": "Marsh Tonic.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Bombardier_Elixir",
+    "name": "Bombardier Elixir",
+    "image": "Bombardier Elixir.png",
+    "seasons": null,
+    "category": "-7"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Baked_Potato",
+    "name": "Baked Potato",
+    "image": "Baked Potato.png",
+    "seasons": null,
+    "category": "-75"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Grilled_Cheese_Sandwich",
+    "name": "Grilled Cheese Sandwich",
+    "image": "Grilled Cheese Sandwich.png",
+    "seasons": null,
+    "category": "-2"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Void_Mayo_Sandwich",
+    "name": "Void Mayo Sandwich",
+    "image": "Void Mayo Sandwich.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Pineapple_Custard_Crepe",
+    "name": "Pineapple Custard Crepe",
+    "image": "Pineapple Custard Crepe.png",
+    "seasons": null,
+    "category": "-79"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Glazed_Pear",
+    "name": "Glazed Pear",
+    "image": "Glazed Pear.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Stuffed_Persimmon",
+    "name": "Stuffed Persimmon",
+    "image": "Stuffed Persimmon.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Cheese_Charcuterie",
+    "name": "Cheese Charcuterie",
+    "image": "Cheese Charcuterie.png",
+    "seasons": null,
+    "category": "-2"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Butter",
+    "name": "Butter",
+    "image": "Butter.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Shark_Tooth",
+    "name": "Shark Tooth",
+    "image": "Shark Tooth.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Diamond_Flower",
+    "name": "Diamond Flower",
+    "image": "Diamond Flower.png",
+    "seasons": null,
+    "category": "-80"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Viper_Eel",
+    "name": "Viper Eel",
+    "image": "Viper Eel.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Alligator",
+    "name": "Alligator",
+    "image": "Alligator.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Shark",
+    "name": "Shark",
+    "image": "Shark.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Ocean_Sunfish",
+    "name": "Ocean Sunfish",
+    "image": "Ocean Sunfish.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Highlands_Bass",
+    "name": "Highlands Bass",
+    "image": "Highlands Bass.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Tadpole",
+    "name": "Tadpole",
+    "image": "Tadpole.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Barred_Knifejaw",
+    "name": "Barred Knifejaw",
+    "image": "Barred Knifejaw.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Diamond_Carp",
+    "name": "Diamond Carp",
+    "image": "Diamond Carp.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Blue_Tang",
+    "name": "Blue Tang",
+    "image": "Blue Tang.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Fiber_Goby",
+    "name": "Fiber Goby",
+    "image": "Fiber Goby.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Arrowhead_Shark",
+    "name": "Arrowhead Shark",
+    "image": "Arrowhead Shark.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Swamp_Crab",
+    "name": "Swamp Crab",
+    "image": "Swamp Crab.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Wolf_Snapper",
+    "name": "Wolf Snapper",
+    "image": "Wolf Snapper.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Camel_Wool",
+    "name": "Camel Wool",
+    "image": "Camel Wool.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Yarn",
+    "name": "Yarn",
+    "image": "Yarn.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Goose_Egg",
+    "name": "Goose Egg",
+    "image": "Goose Egg.png",
+    "seasons": null,
+    "category": "-5"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Golden_Goose_Egg",
+    "name": "Golden Goose Egg",
+    "image": "Golden Goose Egg.png",
+    "seasons": null,
+    "category": "-5"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Goose_Mayonnaise",
+    "name": "Goose Mayonnaise",
+    "image": "Goose Mayonnaise.png",
+    "seasons": null,
+    "category": "-2"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Honey_Jar",
+    "name": "Honey Jar",
+    "image": "Honey Jar.png",
+    "seasons": null,
+    "category": "-2"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Wind_Totem",
+    "name": "Wind Totem",
+    "image": "Wind Totem.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Sun_Totem",
+    "name": "Sun Totem",
+    "image": "Sun Totem.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Swamp_Flower",
+    "name": "Swamp Flower",
+    "image": "Swamp Flower.png",
+    "seasons": null,
+    "category": "-80"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Supernatural_Goo",
+    "name": "Supernatural Goo",
+    "image": "Supernatural Goo.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Swamp_Essence",
+    "name": "Swamp Essence",
+    "image": "Swamp Essence.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Sludge",
+    "name": "Sludge",
+    "image": "Sludge.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Gold_Slime_Egg",
+    "name": "Gold Slime Egg",
+    "image": "Gold Slime Egg.png",
+    "seasons": null,
+    "category": "-5"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Mega_Purple_Mushroom",
+    "name": "Mega Purple Mushroom",
+    "image": "Mega Purple Mushroom.png",
+    "seasons": null,
+    "category": "-81"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Magic_Lamp",
+    "name": "Magic Lamp",
+    "image": "Magic Lamp.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Goldfish",
+    "name": "Goldfish",
+    "image": "Goldfish.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Gar",
+    "name": "Gar",
+    "image": "Gar.png",
+    "seasons": null
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Turretfish",
+    "name": "Turretfish",
+    "image": "Turretfish.png",
+    "seasons": null,
+    "category": "-4"
+  },
+  {
+    "id": "FlashShifter.StardewValleyExpandedCP_Galdoran_Gem",
+    "name": "Galdoran Gem",
+    "image": "Galdoran Gem.png",
+    "seasons": null
+  }
+]

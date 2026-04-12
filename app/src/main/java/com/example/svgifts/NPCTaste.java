@@ -11,30 +11,57 @@ public class NPCTaste {
 
     public NPCTaste(String name, String rawDataFromJSON) {
         this.npcName = name;
-        String[] parts = rawDataFromJSON.split("/");
-
         this.loveIDs = new ArrayList<>();
         this.likeIDs = new ArrayList<>();
+        appendData(rawDataFromJSON);
+    }
 
-        // แก้ไขการดึง Love IDs (Index 1)
-        if (parts.length > 1) {
-            String[] ids = parts[1].split(" ");
+    public void appendData(String rawDataFromJSON) {
+        String[] parts = rawDataFromJSON.split("/");
+
+        // SVE NPCs have a different structure: {{i18n:...}}/ID ID ID
+        // Vanilla NPCs have: ID ID ID (Indices are different if we split by /)
+        
+        int loveIndex = 1;
+        int likeIndex = 3;
+
+        // Check if the first part is a tag like {{i18n:...}}
+        // If it's NOT, then it might be a vanilla-style list where indices are even
+        if (parts.length > 0 && !parts[0].contains("{{")) {
+            loveIndex = 1;
+            likeIndex = 3;
+            // Actually, looking at Abigail: "/Loves//Likes//Dislikes//Hates//Neutral"
+            // Split by / gives: ["", "Loves", "", "Likes", "", "Dislikes", "", "Hates", "", "Neutral"]
+            // Abigail Index 1 = Loves, Index 3 = Likes. This matches.
+        }
+
+        // Append Love IDs
+        if (parts.length > loveIndex) {
+            String[] ids = parts[loveIndex].trim().split(" ");
             for (String id : ids) {
-                if (!id.trim().isEmpty()) { // เช็คว่าไม่ใช่ค่าว่าง
-                    this.loveIDs.add(id.trim());
+                if (id.isEmpty()) continue;
+                String cleanId = sanitizeId(id);
+                if (!cleanId.isEmpty() && !this.loveIDs.contains(cleanId)) {
+                    this.loveIDs.add(cleanId);
                 }
             }
         }
 
-        // แก้ไขการดึง Like IDs (Index 3)
-        if (parts.length > 3) {
-            String[] ids = parts[3].split(" ");
+        // Append Like IDs
+        if (parts.length > likeIndex) {
+            String[] ids = parts[likeIndex].trim().split(" ");
             for (String id : ids) {
-                if (!id.trim().isEmpty()) {
-                    this.likeIDs.add(id.trim());
+                if (id.isEmpty()) continue;
+                String cleanId = sanitizeId(id);
+                if (!cleanId.isEmpty() && !this.likeIDs.contains(cleanId)) {
+                    this.likeIDs.add(cleanId);
                 }
             }
         }
+    }
+
+    private String sanitizeId(String id) {
+        return StardewItem.sanitizeId(id);
     }
 
     public String getNpcName() { return npcName; }

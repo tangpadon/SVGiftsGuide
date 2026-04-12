@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.IOException;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     TextView txtLoveResults, txtLikeResults;
     ImageView imgDisplay;
     Button btnCheck;
+    SwitchCompat swExpanded;
     Object selectedObject = null;
 
     @Override
@@ -51,32 +53,43 @@ public class MainActivity extends AppCompatActivity {
         txtLikeResults = findViewById(R.id.txtLikeResults);
         imgDisplay = findViewById(R.id.imgDisplay);
         btnCheck = findViewById(R.id.btnCheck);
+        swExpanded = findViewById(R.id.swExpanded);
 
-        // 2. โหลดข้อมูล (ฟังก์ชันเดิมที่เขียนไว้)
+        // 2. โหลดข้อมูลเริ่มต้น (Vanilla)
         loadGameData();
+        setupAutoComplete();
 
-        // 3. รวมข้อมูลทั้ง Item และ NPC ลงใน List เดียวกันเพื่อทำ Search
-        List<Object> combinedList = new ArrayList<>();
-        combinedList.addAll(allItems);
-        combinedList.addAll(allNPCs);
-
-        ArrayAdapter<Object> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_dropdown_item_1line, combinedList);
-        autoCompleteSearch.setAdapter(adapter);
-
-        // เก็บค่าเมื่อผู้ใช้เลือก
-        autoCompleteSearch.setOnItemClickListener((parent, view, position, id) -> {
-            selectedObject = parent.getItemAtPosition(position);
-        });
-
-        // ล้างข้อความเมื่อกดที่ช่องค้นหา
-        autoCompleteSearch.setOnClickListener(v -> {
+        // 3. จัดการปุ่มเปิด/ปิด Mod
+        swExpanded.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            loadGameData(); // โหลดข้อมูลใหม่ทั้งหมด
+            setupAutoComplete();
             autoCompleteSearch.setText("");
             selectedObject = null;
         });
 
         // 4. เมื่อกดปุ่มตรวจสอบ
         btnCheck.setOnClickListener(v -> {
+            String query = autoCompleteSearch.getText().toString().trim();
+            if (query.isEmpty()) return;
+
+            // If nothing is selected from dropdown, try to find by name
+            if (selectedObject == null) {
+                for (StardewItem item : allItems) {
+                    if (item.getName().equalsIgnoreCase(query)) {
+                        selectedObject = item;
+                        break;
+                    }
+                }
+                if (selectedObject == null) {
+                    for (NPCTaste npc : allNPCs) {
+                        if (npc.getNpcName().equalsIgnoreCase(query)) {
+                            selectedObject = npc;
+                            break;
+                        }
+                    }
+                }
+            }
+
             if (selectedObject instanceof StardewItem) {
                 StardewItem item = (StardewItem) selectedObject;
                 updateUIResults(item.getId(), item.getName());
@@ -86,36 +99,79 @@ public class MainActivity extends AppCompatActivity {
                 updateNPCUIResults(npc);
                 displayImage("portraits/" + npc.getNpcName() + ".png", null);
             }
+            
+            // Clear selected object after use if it was manually found to avoid sticking
+            selectedObject = null;
+        });
+    }
+
+    private void setupAutoComplete() {
+        List<Object> combinedList = new ArrayList<>();
+        combinedList.addAll(allItems);
+        combinedList.addAll(allNPCs);
+
+        // Sort A-Z by name/npcName
+        java.util.Collections.sort(combinedList, (o1, o2) -> {
+            String name1 = o1.toString();
+            String name2 = o2.toString();
+            return name1.compareToIgnoreCase(name2);
+        });
+
+        ArrayAdapter<Object> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_dropdown_item_1line, combinedList);
+        autoCompleteSearch.setAdapter(adapter);
+
+        autoCompleteSearch.setOnItemClickListener((parent, view, position, id) -> {
+            selectedObject = parent.getItemAtPosition(position);
+        });
+
+        autoCompleteSearch.setOnClickListener(v -> {
+            autoCompleteSearch.setText("");
+            selectedObject = null;
         });
     }
 
     private void displayImage(String path, String base64Data) {
         try {
+            // 1. Try Base64 first
             if (base64Data != null && !base64Data.isEmpty()) {
                 byte[] decodedString = android.util.Base64.decode(base64Data, android.util.Base64.DEFAULT);
                 Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                imgDisplay.setImageBitmap(decodedByte);
-                imgDisplay.setVisibility(android.view.View.VISIBLE);
-                return;
-            }
-
-            InputStream is = getAssets().open(path);
-            Bitmap bitmap = BitmapFactory.decodeStream(is);
-            is.close();
-
-            if (bitmap != null) {
-                // Crop to 64x64 if it's a portrait (sprite sheet)
-                if (path.startsWith("portraits/") && bitmap.getWidth() >= 64 && bitmap.getHeight() >= 64) {
-                    bitmap = Bitmap.createBitmap(bitmap, 0, 0, 64, 64);
+                if (decodedByte != null) {
+                    imgDisplay.setImageBitmap(decodedByte);
+                    imgDisplay.setVisibility(android.view.View.VISIBLE);
+                    return;
                 }
-                imgDisplay.setImageBitmap(bitmap);
-                imgDisplay.setVisibility(android.view.View.VISIBLE);
-            } else {
-                imgDisplay.setVisibility(android.view.View.GONE);
             }
-        } catch (IOException e) {
+
+            // 2. Fallback to local assets with robust resolution
+            String filename = path.contains("/") ? path.substring(path.lastIndexOf("/") + 1) : path;
+            String folder = path.contains("/") ? path.substring(0, path.lastIndexOf("/") + 1) : "items/";
+            
+            // Try in order: Exact Path -> Clean ID -> Lowercase Clean ID
+            String cleanName = StardewItem.sanitizeId(filename.replace(".png", "")) + ".png";
+            String[] attempts = { path, folder + cleanName, (folder + cleanName).toLowerCase() };
+
+            for (String attempt : attempts) {
+                try (InputStream is = getAssets().open(attempt)) {
+                    Bitmap bitmap = BitmapFactory.decodeStream(is);
+                    if (bitmap != null) {
+                        // Portrait Cropping (64x64)
+                        if (attempt.startsWith("portraits/") && bitmap.getWidth() >= 64 && bitmap.getHeight() >= 64) {
+                            bitmap = Bitmap.createBitmap(bitmap, 0, 0, 64, 64);
+                        }
+                        imgDisplay.setImageBitmap(bitmap);
+                        imgDisplay.setVisibility(android.view.View.VISIBLE);
+                        return;
+                    }
+                } catch (IOException ignored) {}
+            }
+
             imgDisplay.setVisibility(android.view.View.GONE);
             Log.w("StardewTest", "Image not found: " + path);
+        } catch (Exception e) {
+            imgDisplay.setVisibility(android.view.View.GONE);
+            Log.e("StardewTest", "Error loading image: " + e.getMessage());
         }
     }
 
@@ -142,6 +198,15 @@ public class MainActivity extends AppCompatActivity {
     private CharSequence formatSeasonalItemList(List<String> itemIds) {
         if (itemIds.isEmpty()) return "ไม่มี";
 
+        // Sort itemIds by their actual names A-Z
+        java.util.Collections.sort(itemIds, (id1, id2) -> {
+            StardewItem item1 = getItemById(id1);
+            StardewItem item2 = getItemById(id2);
+            String name1 = (item1 != null) ? item1.getName() : id1;
+            String name2 = (item2 != null) ? item2.getName() : id2;
+            return name1.compareToIgnoreCase(name2);
+        });
+
         List<String> springIds = new ArrayList<>();
         List<String> summerIds = new ArrayList<>();
         List<String> fallIds = new ArrayList<>();
@@ -152,10 +217,13 @@ public class MainActivity extends AppCompatActivity {
             StardewItem item = getItemById(id);
             if (item != null) {
                 String name = item.getName();
-                boolean inSpring = springItemNames.contains(name);
-                boolean inSummer = summerItemNames.contains(name);
-                boolean inFall = fallItemNames.contains(name);
-                boolean inWinter = winterItemNames.contains(name);
+                String cleanId = item.getCleanId();
+                String rawId = item.getId();
+                
+                boolean inSpring = springItemNames.contains(name) || springItemNames.contains(cleanId) || springItemNames.contains(rawId);
+                boolean inSummer = summerItemNames.contains(name) || summerItemNames.contains(cleanId) || summerItemNames.contains(rawId);
+                boolean inFall = fallItemNames.contains(name) || fallItemNames.contains(cleanId) || fallItemNames.contains(rawId);
+                boolean inWinter = winterItemNames.contains(name) || winterItemNames.contains(cleanId) || winterItemNames.contains(rawId);
 
                 if (inSpring && inSummer && inFall && inWinter) {
                     otherIds.add(id);
@@ -259,6 +327,10 @@ public class MainActivity extends AppCompatActivity {
 
     private CharSequence formatNpcList(List<String> npcNames) {
         if (npcNames.isEmpty()) return "ไม่มี";
+
+        // Sort NPC names A-Z
+        java.util.Collections.sort(npcNames, String::compareToIgnoreCase);
+
         SpannableStringBuilder ssb = new SpannableStringBuilder();
         int size = (int) (txtLoveResults.getTextSize() * 1.1);
 
@@ -300,16 +372,43 @@ public class MainActivity extends AppCompatActivity {
 
     private Drawable getItemDrawable(StardewItem item) {
         if (item.getImageBase64() != null && !item.getImageBase64().isEmpty()) {
-            byte[] decodedString = android.util.Base64.decode(item.getImageBase64(), android.util.Base64.DEFAULT);
-            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-            return new BitmapDrawable(getResources(), decodedByte);
+            try {
+                byte[] decodedString = android.util.Base64.decode(item.getImageBase64(), android.util.Base64.DEFAULT);
+                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                if (decodedByte != null) {
+                    return new BitmapDrawable(getResources(), decodedByte);
+                }
+            } catch (Exception ignored) {
+                // Silently fail for Base64 and fall back to assets
+            }
+        }
+        
+        // Fallback to local asset if base64 fails or is missing
+        String id = item.getId();
+        String cleanId = item.getCleanId();
+        String[] paths = {
+            "items/" + id + ".png",
+            "items/" + cleanId + ".png",
+            "items/" + cleanId.toLowerCase() + ".png"
+        };
+
+        for (String path : paths) {
+            try (InputStream is = getAssets().open(path)) {
+                Bitmap bitmap = BitmapFactory.decodeStream(is);
+                if (bitmap != null) {
+                    return new BitmapDrawable(getResources(), bitmap);
+                }
+            } catch (IOException ignored) {}
         }
         return null;
     }
 
     private StardewItem getItemById(String id) {
+        if (id == null) return null;
+        String targetCleanId = StardewItem.sanitizeId(id);
+        
         for (StardewItem item : allItems) {
-            if (item.getId().equals(id)) {
+            if (item.getId().equalsIgnoreCase(id) || item.getCleanId().equalsIgnoreCase(targetCleanId)) {
                 return item;
             }
         }
@@ -322,16 +421,50 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateUIResults(String itemId, String itemName) {
+        String cleanSearchId = StardewItem.sanitizeId(itemId);
+        
+        // Find the item to get its categoryId
+        String itemCategoryId = "";
+        for (StardewItem item : allItems) {
+            if (item.getId().equals(itemId)) {
+                itemCategoryId = item.getCategoryId();
+                break;
+            }
+        }
+
         List<String> lovers = new ArrayList<>();
         List<String> likers = new ArrayList<>();
 
-        boolean isUniversalLove = universalLoves.contains(itemId);
-        boolean isUniversalLike = universalLikes.contains(itemId);
+        // 1. Check Universals
+        boolean isUniversalLove = universalLoves.contains(cleanSearchId) || (!itemCategoryId.isEmpty() && universalLoves.contains(itemCategoryId));
+        boolean isUniversalLike = universalLikes.contains(cleanSearchId) || (!itemCategoryId.isEmpty() && universalLikes.contains(itemCategoryId));
 
         for (NPCTaste npc : allNPCs) {
-            if (npc.getLoveIDs().contains(itemId)) {
+            boolean isSpecificLove = false;
+            boolean isSpecificLike = false;
+
+            // 2. Check specific NPC tastes
+            for (String npcLoveId : npc.getLoveIDs()) {
+                if (npcLoveId.equalsIgnoreCase(itemId) || npcLoveId.equalsIgnoreCase(cleanSearchId) || (!itemCategoryId.isEmpty() && npcLoveId.equalsIgnoreCase(itemCategoryId))) {
+                    isSpecificLove = true;
+                    break;
+                }
+            }
+
+            // Only check Likes if it wasn't a Love
+            if (!isSpecificLove) {
+                for (String npcLikeId : npc.getLikeIDs()) {
+                    if (npcLikeId.equalsIgnoreCase(itemId) || npcLikeId.equalsIgnoreCase(cleanSearchId) || (!itemCategoryId.isEmpty() && npcLikeId.equalsIgnoreCase(itemCategoryId))) {
+                        isSpecificLike = true;
+                        break;
+                    }
+                }
+            }
+
+            // 3. Assignment Logic (Specifics override Universals)
+            if (isSpecificLove) {
                 lovers.add(npc.getNpcName());
-            } else if (npc.getLikeIDs().contains(itemId)) {
+            } else if (isSpecificLike) {
                 likers.add(npc.getNpcName());
             } else if (isUniversalLove) {
                 lovers.add(npc.getNpcName());
@@ -374,73 +507,135 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadGameData() {
         try {
-            // 1. อ่านและ Parse objects.json (เป็น JSONArray)
-            String objectsJsonString = loadJSONFromAsset("objects.json");
-            if (objectsJsonString != null) {
-                JSONArray objectsArray = new JSONArray(objectsJsonString);
-                for (int i = 0; i < objectsArray.length(); i++) {
-                    JSONObject itemDetails = objectsArray.getJSONObject(i);
-                    String id = itemDetails.getString("id");
-                    String imageBase64 = itemDetails.optString("image", null);
-                    
-                    // ดึงชื่อจากฟิลด์ "name"
-                    String name = itemDetails.optString("name", "Unknown Item");
+            // ล้างข้อมูลเก่าก่อนโหลดใหม่
+            allItems.clear();
+            allNPCs.clear();
+            universalLoves.clear();
+            universalLikes.clear();
+            springItemNames.clear();
+            summerItemNames.clear();
+            fallItemNames.clear();
+            winterItemNames.clear();
 
-                    // สร้าง Object และเก็บลง List
-                    allItems.add(new StardewItem(id, name, imageBase64));
-
-                    // โหลดข้อมูลฤดูกาลจาก JSON
-                    JSONArray seasons = itemDetails.optJSONArray("seasons");
-                    if (seasons != null) {
-                        for (int j = 0; j < seasons.length(); j++) {
-                            String season = seasons.getString(j);
-                            if (season.equals("spring")) springItemNames.add(name);
-                            else if (season.equals("summer")) summerItemNames.add(name);
-                            else if (season.equals("fall")) fallItemNames.add(name);
-                            else if (season.equals("winter")) winterItemNames.add(name);
-                        }
-                    }
-                }
+            // 1. โหลดไอเทม
+            loadItems("objects.json");
+            if (swExpanded != null && swExpanded.isChecked()) {
+                loadItems("sve_objects.json");
             }
 
-            // 2. อ่านและ Parse NPCGiftTastes.json
-            String npcJsonString = loadJSONFromAsset("NPCGiftTastes.json");
-            if (npcJsonString != null) {
-                JSONObject npcRoot = new JSONObject(npcJsonString);
-                JSONObject content = npcRoot.getJSONObject("content");
-
-                // โหลด Universal Love/Like
-                if (content.has("Universal_Love")) {
-                    String[] ids = content.getString("Universal_Love").split(" ");
-                    for (String id : ids) {
-                        if (!id.trim().isEmpty()) universalLoves.add(id.trim());
-                    }
-                }
-                if (content.has("Universal_Like")) {
-                    String[] ids = content.getString("Universal_Like").split(" ");
-                    for (String id : ids) {
-                        if (!id.trim().isEmpty()) universalLikes.add(id.trim());
-                    }
-                }
-
-                Iterator<String> npcKeys = content.keys();
-                while (npcKeys.hasNext()) {
-                    String npcName = npcKeys.next();
-                    // ข้ามค่า Universal ต่างๆ ไปก่อน
-                    if (npcName.startsWith("Universal_")) continue;
-
-                    String rawData = content.getString(npcName);
-
-                    // ใช้ Class NPCTaste ที่เราสร้างไว้จัดการข้อมูล
-                    allNPCs.add(new NPCTaste(npcName, rawData));
-                }
+            // 2. โหลด NPC และ Gift Tastes
+            loadGifts("NPCGiftTastes.json");
+            if (swExpanded != null && swExpanded.isChecked()) {
+                loadGifts("sve_NPCGiftTastes.json");
             }
 
             Log.d("StardewTest", "โหลดไอเทมได้: " + allItems.size() + " ชิ้น");
             Log.d("StardewTest", "โหลด NPC ได้: " + allNPCs.size() + " คน");
 
         } catch (Exception e) {
-            Log.e("StardewTest", "เกิดข้อผิดพลาดในการอ่านไฟล์: " + e.getMessage(), e);
+            Log.e("StardewTest", "เกิดข้อผิดพลาดในการโหลดข้อมูล: " + e.getMessage(), e);
+        }
+    }
+
+    private void loadItems(String fileName) throws Exception {
+        String jsonString = loadJSONFromAsset(fileName);
+        if (jsonString == null) return;
+
+        JSONArray objectsArray = new JSONArray(jsonString);
+
+        for (int i = 0; i < objectsArray.length(); i++) {
+            JSONObject itemDetails = objectsArray.getJSONObject(i);
+
+            String id = itemDetails.getString("id");
+            String imageBase64 = itemDetails.optString("image", null);
+            String name = itemDetails.optString("name", "Unknown Item");
+            String categoryId = itemDetails.optString("category", "");
+
+            // If the image field contains a filename (e.g. "Item.png") instead of Base64, set it to null
+            // so the app correctly falls back to loading from the assets folder.
+            if (imageBase64 != null) {
+                // Heuristic: Base64 strings are typically long and don't contain spaces or end in .png.
+                // Modded JSONs often put the filename in the "image" field.
+                if (imageBase64.toLowerCase().endsWith(".png") || imageBase64.contains(" ") || imageBase64.length() < 64) {
+                    imageBase64 = null;
+                }
+            }
+
+            // เพิ่มไอเท็มเข้า List
+            allItems.add(new StardewItem(id, name, imageBase64, categoryId));
+
+            JSONArray seasons = itemDetails.optJSONArray("seasons");
+            if (seasons != null) {
+                for (int j = 0; j < seasons.length(); j++) {
+                    String season = seasons.getString(j);
+                    String cleanId = StardewItem.sanitizeId(id);
+                    if (season.equalsIgnoreCase("spring")) {
+                        if (!springItemNames.contains(name)) springItemNames.add(name);
+                        if (!springItemNames.contains(cleanId)) springItemNames.add(cleanId);
+                    } else if (season.equalsIgnoreCase("summer")) {
+                        if (!summerItemNames.contains(name)) summerItemNames.add(name);
+                        if (!summerItemNames.contains(cleanId)) summerItemNames.add(cleanId);
+                    } else if (season.equalsIgnoreCase("fall")) {
+                        if (!fallItemNames.contains(name)) fallItemNames.add(name);
+                        if (!fallItemNames.contains(cleanId)) fallItemNames.add(cleanId);
+                    } else if (season.equalsIgnoreCase("winter")) {
+                        if (!winterItemNames.contains(name)) winterItemNames.add(name);
+                        if (!winterItemNames.contains(cleanId)) winterItemNames.add(cleanId);
+                    }
+                }
+            }
+        }
+    }
+
+    private void loadGifts(String fileName) throws Exception {
+        String jsonString = loadJSONFromAsset(fileName);
+        if (jsonString == null) return;
+
+        JSONObject root = new JSONObject(jsonString);
+        JSONObject content;
+        
+        // เช็คว่ามี key "content" หรือไม่ (NPCGiftTastes.json มี แต่ sve_NPCGiftTastes.json ไม่มี)
+        if (root.has("content")) {
+            content = root.getJSONObject("content");
+        } else {
+            content = root;
+        }
+
+        if (content.has("Universal_Love")) {
+            String[] ids = content.getString("Universal_Love").split(" ");
+            for (String id : ids) {
+                if (!id.trim().isEmpty()) {
+                    universalLoves.add(StardewItem.sanitizeId(id));
+                }
+            }
+        }
+        if (content.has("Universal_Like")) {
+            String[] ids = content.getString("Universal_Like").split(" ");
+            for (String id : ids) {
+                if (!id.trim().isEmpty()) {
+                    universalLikes.add(StardewItem.sanitizeId(id));
+                }
+            }
+        }
+
+        Iterator<String> keys = content.keys();
+        while (keys.hasNext()) {
+            String npcName = keys.next();
+            if (npcName.startsWith("Universal_")) continue;
+
+            String rawData = content.getString(npcName);
+            
+            boolean found = false;
+            for (NPCTaste existing : allNPCs) {
+                if (existing.getNpcName().equalsIgnoreCase(npcName)) {
+                    existing.appendData(rawData);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                allNPCs.add(new NPCTaste(npcName, rawData));
+            }
         }
     }
 
