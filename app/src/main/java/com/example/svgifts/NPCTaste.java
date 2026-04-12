@@ -1,13 +1,14 @@
 package com.example.svgifts;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class NPCTaste {
-    private String npcName;
-    private List<String> loveIDs;
-    private List<String> likeIDs;
+    private final String npcName;
+    private final List<String> loveIDs;
+    private final List<String> likeIDs;
 
     public NPCTaste(String name, String rawDataFromJSON) {
         this.npcName = name;
@@ -27,13 +28,9 @@ public class NPCTaste {
 
         // Check if the first part is a tag like {{i18n:...}}
         // If it's NOT, then it might be a vanilla-style list where indices are even
-        if (parts.length > 0 && !parts[0].contains("{{")) {
-            loveIndex = 1;
-            likeIndex = 3;
-            // Actually, looking at Abigail: "/Loves//Likes//Dislikes//Hates//Neutral"
-            // Split by / gives: ["", "Loves", "", "Likes", "", "Dislikes", "", "Hates", "", "Neutral"]
-            // Abigail Index 1 = Loves, Index 3 = Likes. This matches.
-        }
+        // Actually, looking at Abigail: "/Loves//Likes//Dislikes//Hates//Neutral"
+        // Split by / gives: ["", "Loves", "", "Likes", "", "Dislikes", "", "Hates", "", "Neutral"]
+        // Abigail Index 1 = Loves, Index 3 = Likes. This matches.
 
         // Append Love IDs
         if (parts.length > loveIndex) {
@@ -68,6 +65,7 @@ public class NPCTaste {
     public List<String> getLoveIDs() { return loveIDs; }
     public List<String> getLikeIDs() { return likeIDs; }
 
+    @NonNull
     @Override
     public String toString() {
         return npcName;
