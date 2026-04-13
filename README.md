@@ -24,7 +24,7 @@ Item Database: Mapped using MateusAquino/stardewids, providing consistent Object
 
 [ ] UI/UX Refinement: Currently in the process of designing a modern, Material Design interface.
 
-[ ] Support SVE mod...
+[X] Support SVE mod 😁
 
 🛠 Tech Stack
 
