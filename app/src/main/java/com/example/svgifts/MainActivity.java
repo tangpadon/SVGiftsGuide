@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 1. เชื่อมตัวแปร UI
+        // Var to UI
         autoCompleteSearch = findViewById(R.id.autoCompleteSearch);
         txtLoveResults = findViewById(R.id.txtLoveResults);
         txtLikeResults = findViewById(R.id.txtLikeResults);
@@ -55,19 +55,19 @@ public class MainActivity extends AppCompatActivity {
         btnCheck = findViewById(R.id.btnCheck);
         swExpanded = findViewById(R.id.swExpanded);
 
-        // 2. โหลดข้อมูลเริ่มต้น (Vanilla)
+        // loadData
         loadGameData();
         setupAutoComplete();
 
-        // 3. จัดการปุ่มเปิด/ปิด Mod
+        // On/Off Expanded
         swExpanded.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            loadGameData(); // โหลดข้อมูลใหม่ทั้งหมด
+            loadGameData();
             setupAutoComplete();
             autoCompleteSearch.setText("");
             selectedObject = null;
         });
 
-        // 4. เมื่อกดปุ่มตรวจสอบ
+        // 4. When Check Gifts
         btnCheck.setOnClickListener(v -> {
             String query = autoCompleteSearch.getText().toString().trim();
             if (query.isEmpty()) return;
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         combinedList.addAll(allNPCs);
 
         // Sort A-Z by name/npcName
-        java.util.Collections.sort(combinedList, (o1, o2) -> {
+        combinedList.sort((o1, o2) -> {
             String name1 = o1.toString();
             String name2 = o2.toString();
             return name1.compareToIgnoreCase(name2);
@@ -176,14 +176,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateNPCUIResults(NPCTaste npc) {
-        List<String> loveIds = new ArrayList<>();
-        List<String> likeIds = new ArrayList<>();
 
-        // รวม Universal เข้าไปก่อน
-        loveIds.addAll(universalLoves);
-        likeIds.addAll(universalLikes);
+        // Universal
+        List<String> loveIds = new ArrayList<>(universalLoves);
+        List<String> likeIds = new ArrayList<>(universalLikes);
 
-        // เพิ่มของเฉพาะตัว NPC
+        // NPC
         for (String id : npc.getLoveIDs()) {
             if (!loveIds.contains(id)) loveIds.add(id);
         }
@@ -196,10 +194,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private CharSequence formatSeasonalItemList(List<String> itemIds) {
-        if (itemIds.isEmpty()) return "ไม่มี";
+        if (itemIds.isEmpty()) return "None";
 
         // Sort itemIds by their actual names A-Z
-        java.util.Collections.sort(itemIds, (id1, id2) -> {
+        itemIds.sort((id1, id2) -> {
             StardewItem item1 = getItemById(id1);
             StardewItem item2 = getItemById(id2);
             String name1 = (item1 != null) ? item1.getName() : id1;
@@ -299,7 +297,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private CharSequence formatItemList(List<String> itemIds) {
-        if (itemIds.isEmpty()) return "ไม่มี";
+        if (itemIds.isEmpty()) return "None";
         SpannableStringBuilder ssb = new SpannableStringBuilder();
         int size = (int) (txtLoveResults.getTextSize() * 1.1);
 
@@ -326,10 +324,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private CharSequence formatNpcList(List<String> npcNames) {
-        if (npcNames.isEmpty()) return "ไม่มี";
+        if (npcNames.isEmpty()) return "None";
 
         // Sort NPC names A-Z
-        java.util.Collections.sort(npcNames, String::compareToIgnoreCase);
+        npcNames.sort(String::compareToIgnoreCase);
 
         SpannableStringBuilder ssb = new SpannableStringBuilder();
         int size = (int) (txtLoveResults.getTextSize() * 1.1);
@@ -486,11 +484,11 @@ public class MainActivity extends AppCompatActivity {
         boolean isUniversalLike = universalLikes.contains(itemId);
 
         for (NPCTaste npc : allNPCs) {
-            // เช็คว่าอยู่ใน List ของที่ Love หรือไม่
+            //  List  Love
             if (npc.getLoveIDs().contains(itemId)) {
                 lovers.add(npc.getNpcName());
             }
-            // เช็คว่าอยู่ใน List ของที่ Like หรือไม่
+            //  List  Like
             else if (npc.getLikeIDs().contains(itemId)) {
                 likers.add(npc.getNpcName());
             } else if (isUniversalLove) {
@@ -507,7 +505,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadGameData() {
         try {
-            // ล้างข้อมูลเก่าก่อนโหลดใหม่
             allItems.clear();
             allNPCs.clear();
             universalLoves.clear();
@@ -553,15 +550,13 @@ public class MainActivity extends AppCompatActivity {
 
             // If the image field contains a filename (e.g. "Item.png") instead of Base64, set it to null
             // so the app correctly falls back to loading from the assets folder.
-            if (imageBase64 != null) {
-                // Heuristic: Base64 strings are typically long and don't contain spaces or end in .png.
-                // Modded JSONs often put the filename in the "image" field.
-                if (imageBase64.toLowerCase().endsWith(".png") || imageBase64.contains(" ") || imageBase64.length() < 64) {
-                    imageBase64 = null;
-                }
+            // Heuristic: Base64 strings are typically long and don't contain spaces or end in .png.
+            // Modded JSONs often put the filename in the "image" field.
+            if (imageBase64.toLowerCase().endsWith(".png") || imageBase64.contains(" ") || imageBase64.length() < 64) {
+                imageBase64 = null;
             }
 
-            // เพิ่มไอเท็มเข้า List
+            // add to List
             allItems.add(new StardewItem(id, name, imageBase64, categoryId));
 
             JSONArray seasons = itemDetails.optJSONArray("seasons");
@@ -592,14 +587,7 @@ public class MainActivity extends AppCompatActivity {
         if (jsonString == null) return;
 
         JSONObject root = new JSONObject(jsonString);
-        JSONObject content;
-        
-        // เช็คว่ามี key "content" หรือไม่ (NPCGiftTastes.json มี แต่ sve_NPCGiftTastes.json ไม่มี)
-        if (root.has("content")) {
-            content = root.getJSONObject("content");
-        } else {
-            content = root;
-        }
+        JSONObject content = root.getJSONObject("content");
 
         if (content.has("Universal_Love")) {
             String[] ids = content.getString("Universal_Love").split(" ");
@@ -639,7 +627,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // ฟังก์ชันช่วยอ่านไฟล์จากโฟลเดอร์ assets
+    // read assets folder
     private String loadJSONFromAsset(String fileName) {
         String json;
         try {

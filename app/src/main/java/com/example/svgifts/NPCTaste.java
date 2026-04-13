@@ -26,12 +26,6 @@ public class NPCTaste {
         int loveIndex = 1;
         int likeIndex = 3;
 
-        // Check if the first part is a tag like {{i18n:...}}
-        // If it's NOT, then it might be a vanilla-style list where indices are even
-        // Actually, looking at Abigail: "/Loves//Likes//Dislikes//Hates//Neutral"
-        // Split by / gives: ["", "Loves", "", "Likes", "", "Dislikes", "", "Hates", "", "Neutral"]
-        // Abigail Index 1 = Loves, Index 3 = Likes. This matches.
-
         // Append Love IDs
         if (parts.length > loveIndex) {
             String[] ids = parts[loveIndex].trim().split(" ");

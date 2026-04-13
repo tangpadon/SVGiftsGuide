@@ -1,10 +1,12 @@
 package com.example.svgifts;
 
+import androidx.annotation.NonNull;
+
 public class StardewItem {
-    private String id;
-    private String name;
-    private String imageBase64;
-    private String categoryId;
+    private final String id;
+    private final String name;
+    private final String imageBase64;
+    private final String categoryId;
 
     public StardewItem(String id, String name, String imageBase64, String categoryId) {
         this.id = id;
@@ -26,7 +28,7 @@ public class StardewItem {
         if (id == null) return "";
         String clean = id;
         
-        // 1. Remove (O), (B), etc. prefixes (Stardew 1.6+)
+        // 1. Remove prefixes (Stardew 1.6+)
         if (clean.startsWith("(") && clean.contains(")")) {
             int closeParen = clean.indexOf(")");
             if (closeParen < 5) { // Sanity check for prefix length
@@ -42,6 +44,7 @@ public class StardewItem {
         return clean.replace("_", " ").trim();
     }
 
+    @NonNull
     @Override
     public String toString() {
         return name;
