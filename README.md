@@ -1,33 +1,96 @@
-Stardew Valley Gift Guide App 🎁
+<div align="center">
 
-📌 Introduction
+<img src="https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android">
+<img src="https://img.shields.io/badge/Language-Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java">
+<img src="https://img.shields.io/badge/Data-JSON-FFD43B?style=for-the-badge&logo=json&logoColor=black" alt="JSON">
+<img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
 
-A lightweight Android Companion App for Stardew Valley players. This application serves as a quick reference guide to help players identify the "Loved" and "Liked" gifts for each NPC, ensuring you never miss a chance to build friendships in Pelican Town.
+---
 
-📊 Data Integration
+<h1>Stardew Valley Gift Guide</h1>
 
-This project utilizes a hybrid data approach to ensure maximum accuracy:
+<p>
+A lightweight Android companion app for Stardew Valley players.<br>
+Quick reference guide to help you identify <strong>Loved</strong> and <strong>Liked</strong> gifts for every NPC,<br>
+ensuring you never miss a chance to build friendships in Pelican Town.
+</p>
 
-NPC Gift Tastes: Extracted directly from the original Stardew Valley game files (NPCGiftTastes.xnb decoded to JSON).
+</div>
 
-Item Database: Mapped using MateusAquino/stardewids, providing consistent Object IDs and metadata for every item in the game.
+---
 
-🚀 Key Features
+## Introduction
 
-[x] NPC Directory: Comprehensive list of all villagers.
+Stardew Valley Gift Guide is a quick-reference Android app designed for players who want to maximize friendship levels without memorizing complex gift preferences. Simply select an NPC or search an item, and the app instantly tells you the best gifts to give.
 
-[x] Core Logic: Functional Java-based data parsing for complex gift taste strings.
+Built with clean Java and structured around extracted game data, this app works offline and loads instantly.
 
-[x] Item-to-NPC Mapping: Search an item name and get a list of NPCs who Love or Like it.
+---
 
-[x] Reverse Lookup: Instead of looking at an NPC to see what they want, look at your inventory items to see who to give them to.
+## Data Integration
 
-[ ] UI/UX Refinement: Currently in the process of designing a modern, Material Design interface.
+This project uses a hybrid data approach for maximum accuracy:
 
-[X] Support SVE mod 😁
+<div align="center">
+<table>
+<tr>
+<td align="center">
+<strong>NPC Gift Tastes</strong><br>
+Extracted directly from<br>original game files<br>
+<sub>NPCGiftTastes.xnb decoded to JSON</sub>
+</td>
+<td align="center" style="font-size:1.5rem;">+</td>
+<td align="center">
+<strong>Item Database</strong><br>
+Mapped using<br>MateusAquino/stardewids<br>
+<sub>Consistent Object IDs and metadata</sub>
+</td>
+</tr>
+</table>
+</div>
 
-🛠 Tech Stack
+---
 
-Language: Java
+## Features
 
-Data Format: JSON (Custom parsed from game assets)
+| Feature | Status | Description |
+|---------|--------|-------------|
+| **NPC Directory** | Complete | Comprehensive list of all villagers |
+| **Gift Lookup** | Complete | Select an NPC to see their loved/liked gifts |
+| **Item-to-NPC Mapping** | Complete | Search an item to find who loves/likes it |
+| **Reverse Lookup** | Complete | Search your inventory to find who to give items to |
+| **SVE Mod Support** | Complete | Supports Stardew Valley Expanded NPCs |
+| **Data Parsing** | Complete | Java-based parser for complex gift taste strings |
+| **UI/UX** | In Progress | Material Design interface under development |
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Language | Java |
+| Platform | Android |
+| Data Format | JSON (parsed from game assets) |
+| NPC Data Source | NPCGiftTastes.xnb |
+| Item Database | MateusAquino/stardewids |
+
+---
+
+## Screenshots
+
+<div align="center">
+
+<em>Screenshots coming soon</em>
+
+</div>
+
+---
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge" alt="Status">
+
+<sub>Built with care for the Stardew Valley community</sub>
+
+</div>
